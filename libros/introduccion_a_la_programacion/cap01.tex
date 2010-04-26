@@ -1,0 +1,96 @@
+\chapter{1era semana - ¿Qué es programar?}
+\section{¿Qué es programar?}
+Recuerdo claramente el momento en que escribí mi primer programa (y eso que yo tengo una memoria malísima), era un programa bastante complicado para alguien como yo. Pero como yo estudiaba matemática en la facultad se suponía que era bueno en cosas como ``pensar lógicamente''. Entonces fui a la sala de computadoras de la facu, armado solamente con un libro sobre programación y mi ego, me senté en una de las computadoras y empecé. Bueno, ``empecé'' no sería la palabra correcta. O tampoco ``programar". Digamos que me senté delante de la computadora y me sentí increíblemente tonto. Luego me sentí avergonzado. Y luego enojado hasta que finalmente me sentí pequeño: después de 8 horas desesperantes el programa estaba terminado y andando. El hecho de que funcionase no importaba mucho...era un momento de gloria.\\
+
+Pero la pregunta que me quedo fue, ¿por qué fue tan difícil decirle a una computadora que haga algo medianamente complicado? Bueno, la parte difícil no es la de ``medianamente complicado'' sino la parte de ``decirle a una computadora``.\\
+
+En cualquier comunicación entre humanos uno puede dejar muchas cosas sin decir, saltearse pasos y conceptos y entenderse. Claro que uno deja que la otra persona ``complete'' lo que falta. En realidad, uno tiene que saltearse cosas. Si no lo hiciésemos, ¡no podríamos hacer nada! El ejemplo típico es el  de armarse un sandwich de jamón, queso y mayonesa. Normalmente, uno diría tranquilamente: ``Che ¿me haces un sandwich de jamón y queso con mayonesa?'' En cambio, si se lo tenés que pedir a alguien que nunca hizo uno, como un robot, tendrías que decirle algo como:
+\begin{enumerate}
+  \item Agarrá 2 rodajas de pan (y dejá el resto)
+  \item Sacá queso, jamón, mayonesa y un cuchillo
+  \item Untá un poco de mayonesa en un pan
+  \item Poné arriba de la mayonesa: 2 fetas de jamón y 1 de queso
+  \item Poné la otra rodaja de pan arriba, poné todo en un plato y traémelo. ¡Gracias!
+\end{enumerate}
+
+Me imagino que esas instrucciones son suficientes para un niño de 7 años. Pero un niño de 7 años es bastante inteligente como para hacer eso. En cambio ¿qué habría que decirle a una computadora? Concentrémonos solamente en el primer paso:
+
+\begin{enumerate}
+  \item Agarrá 2 rodajas de pan (y dejá el resto)
+  \begin{enumerate}
+    \item Localizá la bolsa de pan lactal
+    \item Andá a una mesa
+    \item Dejá la bolsa de pan en la mesa
+    \item Agarrá 2 rodajas de adentro de la bolsa
+    \item \ldots
+  \end{enumerate}
+\end{enumerate}
+
+Lamentablemente estas instrucciones no alcanzan para nada. Por ejemplo: ¿cómo es “localizá la bolsa de pan”? Tendríamos que tener una especie de base de datos en donde se asocien las cosas con su ubicación. La base de datos debería también tener las coordenadas del jamón, heladera, mesa, cuchillo, plato, yo mismo...
+¡Ah! ¿Y qué pasaría si la bolsa de pan está en una panera? Entonces ¿habría que abrir la panera? O ¿por ahí está detrás de algo? ¿O arriba de la heladera? Entonces tendríamos solamente para localizar la bolsa de pan lactal:
+\begin{enumerate}
+  \item Buscá las coordenadas de la panera
+  \item Si la bolsa de pan está en la panera
+  \begin{enumerate}
+    \item Abrí la panera
+    \item Meté la mano dentro de la panera
+    \item Agarrá la bolsa de pan lactal
+    \item Sacá la mano de la panera
+    \item Cerrá la panera
+  \end{enumerate}
+  \item Si la bolsa de pan está arriba de la heladera
+  \begin{enumerate}
+    \item Andá hasta la puerta de la heladera
+    \item Estirá la mano hacia arriba de la heladera
+    \item Agarrá la bolsa de pan lactal
+    \item Sacá la mano de arriba de la heladera
+  \end{enumerate}
+\end{enumerate}
+
+Y así sigue y sigue. Además ¿qué pasa si no hay cuchillo? ¿O si la mesa está llena de cosas y no hay lugar para preparar el sandwich? ¡Habría que rezar al Santo que te parezca más apropiado para que el pan esté en buen estado! Aún los pasos más sencillos, como abrir la panera, deberían ser explicados ¡y es por eso que todavía no hay robots que hagan sandwich para nosotros! No es que los robots no puedan ser construidos ¡sino que no podemos programarlos para que nos hagan un sandwich! Y eso es porque, aunque no lo parezca, preparar un sandwich de jamón, queso y mayonesa es algo muy difícil de describir (pero fácil de hacer para criaturas inteligentes como nosotros, los humanos) y las computadoras sólo son buenas para las cosas que son fáciles de describir. Y por eso para mí fue tan difícil hacer mi primer programa: ¡las computadoras son más tontas de lo que creía!
+
+\section{Hacer un sandwich es programar}
+Cuando uno le explica a alguien como hacer un sandwich, el trabajo es mucho más fácil porque esa persona ya sabe lo que es un sandwich. Es común que la gente sepa de “sandwichería“ y por eso esa persona puede llenar los espacios de nuestra pobre explicación. El paso 3 dice “Untá un poco de mayonesa en un pan“, pero no dice que no lo unte en los dos lados. Tampoco dice cuánta mayonesa ni de qué manera untarla (si poner más en el medio, o en los costados) ni aclara que debe usar el cuchillo para hacerlo y no las manos. Uno asume que esas cosas ya se saben. Creo que esta realidad ayudaría a explicar qué quiere decir programar o por lo menos dar una definición informal.\\
+
+Programar es decirle a tu computadora cómo hacer algo. Las tareas grandes tienen que ser divididas o descompuestas en tareas más chicas, las cuales tienen que ser descompuestas en tareas aún más chicas y así seguir hasta que las tareas sean tan chiquititas y simples que no tienen que ser divididas porque la computadora sabe hacerlas.\\
+
+Estas tareas son cosas muy básicas como imprimir un texto en la pantalla o sumar 2 números. El problema más grande que tuve cuando estaba aprendiendo a programar fue que yo estaba aprendiendo al revés. Yo ya sabía lo que quería que la computadora hiciese y trataba de ir dividiendo eso hasta llegar a tareas que de la computadora entendiese. Muy mala idea. En realidad yo no sabía lo que realmente la computadora podía hacer, entonces no sabía bien en que tareítas descomponer mi tarea grande o lo que la computadora tenía que hacer.\\
+ 	
+Por eso en Nahual, vas a aprender a programar en forma diferente. Primero vas a aprender estas tareítas básicas que la computadora puede hacer (algunas nomás) y después vas a encontrar tareas simples que puedan ser descompuestas en esas tareítas. Tu primer programa va a ser tan fácil que solamente te llevara menos de un minuto.
+
+\section{Lenguajes de Programación}
+Para poder decirle algo a la computadora tenemos que usar un lenguaje diferente. Un lenguaje de programación es parecido al lenguaje que usamos para hablar, en el sentido que está formado por cosas básicas como palabras (verbos y sustantivos) y por maneras de combinar esas palabras para dar sentido (oraciones, párrafos, novelas). Hay muchos lenguajes para elegir (C, Java, Ruby, Perl, \ldots) y cada uno tiene su conjunto de elementos básicos. Algunos tienen más que otros. Ruby tiene un conjunto sencillo pero elegante y es uno de los más fáciles para aprender así que vamos a usar ese.\\
+ 
+Probablemente la mejor razón para usar Ruby es que los programas en Ruby suelen ser cortos. Por ejemplo aquí hay un pequeño programa en Java.
+
+\begin{lstlisting}[language=java]
+public class Hola Mundo {
+  public static void main (String [] args) {
+    System.out.println("Hola Mundo");
+  }
+}
+\end{lstlisting}
+
+Y acá esta el mismo programa pero en el lenguaje Ruby:
+
+\begin{lstlisting}
+  puts 'Hola Mundo'
+\end{lstlisting}
+
+Este programa, en ambos casos, escribe las palabras ``Hola Mundo'' en la pantalla de la computadora. En la versión en Ruby uno podría adivinar, pero en la versión de java adivinar esto no es tan sencillo.
+
+\section{El arte de programar}
+Una parte importante de programar es, claramente, que el programa haga lo que se supone que tiene que hacer y no otra cosa. En otras palabras, el programa no debería tener errores o \emph{bugs} (se pronuncia bags). Claro que, cuando uno se concentra mucho en no tener errores, se pierde la gran mayoría de las cosas buenas de la programación.\\
+
+Programar no es solamente acerca del producto final o del programa sino acerca del proceso que lleva a él. Los programas, a diferencia de cosas más concretas como una casa, no se construyen en un orden tan rígido sino que los programadores charlan sobre él, piensan, discuten, escriben un poco, lo arreglan, lo estiran, juegan con él, lo cambian, lo mejoran, lo prueban, lo borran, lo vuelven a escribir, \ldots
+
+\section{Un programa no se arma: crece}
+Dado que un programa siempre está creciendo y evolucionando, siempre está cambiando y tiene que estar escrito pensando en que va a cambiar. Sé que esto no puede quedar muy claro hablando en términos prácticos pero este tema ira surgiendo durante todo el libro. Probablemente, la primera regla de un buen programador es evitar duplicar código, esto es ``No vuelva a escribir lo mismo". Si la vemos de otra manera, es como la ley del mínimo esfuerzo. Un buen programador tiene que ser un poco vago, pero no ser vago de no hacer nada, sino ser vago en forma inteligente ¡para no tener que hacer nada después! ¡Ahórrate trabajo siempre que puedas! Si hacer cambios ahora significa ahorrarte trabajo más adelante ¡hacelo!\\
+
+Trata de que tu programa haga lo menos posible para hacer lo que tiene que hacer. De esta manera programar no solo es mucho más interesante (porque es muy aburrido hacer lo mismo una y otra vez) sino que, además ¡el programa tiene menos errores y es más rápido! ¡Es una situación donde todos ganan!\\
+
+De cualquier manera, la idea es la misma: tratá de que tus programas sean flexibles. Así, cuando haya que hacer los cambios (y te aseguro que siempre vienen) entonces vas a pasar menos y mejor tiempo haciéndolos.
+
+Ejercicio 1 - Mostrar un programa
+Les mostramos un programa hecho en Ruby de los robots.
+En este capítulo proponemos un role-play con un robot. Los chicos tienen que escribir los pasos del robot y el robot (uno de los instructores) tiene que repetirlo.

@@ -1,0 +1,8 @@
+\select@language {spanish}
+\contentsline {chapter}{1era semana - \IeC {\textquestiondown }Qu\IeC {\'e} es programar?}{1}{chapter*.3}
+\contentsline {section}{\IeC {\textquestiondown }Qu\IeC {\'e} es programar?}{1}{section*.4}
+\contentsline {section}{Hacer un sandwich es programar}{2}{section*.5}
+\contentsline {section}{Lenguajes de Programaci\IeC {\'o}n}{3}{section*.6}
+\contentsline {section}{El arte de programar}{4}{section*.7}
+\contentsline {section}{Un programa no se arma: crece}{4}{section*.8}
+\contentsline {chapter}{2da semana - N\IeC {\'u}meros y letras}{5}{chapter*.9}
