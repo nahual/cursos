@@ -1,5 +1,5 @@
 \documentclass[12pt]{book}
- \usepackage[a4paper,headheight=16pt,scale={0.8,0.85},hoffset=0.4cm]{geometry}
+\usepackage[a4paper,headheight=16pt,scale={0.8,0.85},hoffset=0.4cm]{geometry}
 
 % Para escribir en castellano:
 \usepackage[spanish]{babel}
@@ -9,14 +9,14 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{tipa}
-%\usepackage{txfonts}
 \usepackage{textcomp}
-%\usepackage{amsthm}
-%\usepackage{array}
-%\usepackage{xy}
 \usepackage{fancyhdr}
-
 \pagestyle{fancy}
+
+%Comandos propios para simplificar escritura de capítulos
+\usepackage{ejercicio}
+\usepackage{nota}
+
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
 %Eliminando numeración y nombres de Capítulos y secciones
@@ -26,10 +26,9 @@
 \renewcommand{\thechapter}{}
 \setcounter{secnumdepth}{-1} 
 
-
 \fancyhf{}
 \fancyhead[LE,RO]{\bfseries\thepage}
-\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[LO]{\bfseries\leftmark}
 \fancyhead[RE]{\bfseries\leftmark}
 \fancyfoot[R]{\includegraphics[height=1cm]{footer_logo}}
 \renewcommand{\headrulewidth}{0.5pt}
@@ -48,16 +47,17 @@
 
 \usepackage{hyperref}
 \hypersetup{
-            pdftitle=Proyecto Nahual – Introducción a la programación,%
-            pdfauthor=Proyecto Nahual,%
-            pdfsubject=Libro de Introducción a la programación del Proyecto Nahual,%
-            pdfkeywords=programación nahual ruby,%
-            colorlinks,%
-            citecolor=black,%
-            filecolor=black,%
-            linkcolor=black,%
-            urlcolor=black,%
-            pdftex}
+  pdftitle=Proyecto Nahual – Introducción a la programación,
+  pdfauthor=Proyecto Nahual,
+  pdfsubject=Libro de Introducción a la programación del Proyecto Nahual,
+  pdfkeywords=programación nahual ruby,
+  colorlinks,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=black,
+  pdftex
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{color}
@@ -87,7 +87,7 @@
         identifierstyle=\ttfamily,
         keywordstyle=\color[rgb]{0,0,1},
         commentstyle=\color[rgb]{0.133,0.545,0.133},
-        stringstyle=\color[rgb]{0.627,0.126,0.941},
+        stringstyle=\color[rgb]{0.627,0.126,0.941}
 }
 %Ejemplo de uso para incluir un archivo: \lstinputlisting{parameters.py}
 %Ejemplo para codigo inline: \begin{lstlisting} \end{lstlisting}
@@ -108,15 +108,13 @@
 \begin{document}
 \begin{titlepage}
    \noindent\hspace*{-\PictHOffset}%
-   \raisebox{\PictVOffset}[0pt][0pt]{\makebox[0pt][l]{%
-      \includegraphics[width=\paperwidth,height=\paperheight]{portada}}}
-
-   \begin{center}
-      \vfill
-      \bfseries \Huge 2010 \\[3cm]
-      \vfill
-     v0.0.1
-   \end{center}
+   \raisebox{\PictVOffset}[0pt][0pt]{\makebox[0pt][l]{
+      \includegraphics[width=\paperwidth,height=\paperheight]{portada}}
+   }
+   \vfill
+     \begin{flushright}
+     	v0.0.1
+     	\end{flushright}
 \end{titlepage}
 
 \thispagestyle{empty}
@@ -126,17 +124,15 @@
 \mainmatter
 \include{cap01}
 \include{cap02}
- 
-\begin{thebibliography}{99}
-  
-\bibitem{algo}
-Titulo de la pagina (autor o algo): \\
-http://url.com
- 
-\bibitem{otro}
-Autor, \emph{Titulo}, Editorial (año) \\
-ISBN: XX-XXXX-XXX-X
- 
-\end{thebibliography}
- 
+\include{cap03}
+\include{cap04}
+\include{cap05}
+\include{cap06}
+\include{cap07}
+\include{cap08}
+\include{cap09}
+\include{cap10}
+\include{cap11}
+\include{cap12}
+\include{cap13} 
 \end{document}

@@ -1,3 +1,209 @@
 \chapter{2da semana - Números y letras}
+\nota{Introducción}{En la primer semana aprendimos qué era programar, vimos un robot en funcionamiento y tratamos de ver los conceptos de instrucciones en ese ejemplo}
+\nota{Objetivo}{El paso que queremos dar en esta semana es empezar a hacer esto pero con la computadora y con el lenguaje de programación Ruby}
+\nota{Cómo lo vamos a hacer}{Vamos a empezar por el tema de los números que es algo bastante sencillo para arrancar y que se usa durante toda la vida del programador, de hecho es muy probable que vuelvan sobre esto en el futuro.\\
 
-Aca citamos alguna pagina \cite{algo} y algun libro \cite{otro} :D
+Cuando terminemos con los números vamos a pasar a cómo mostrar las palabras por la pantalla y, por supuesto en el medio vamos a tratar de jugar, crear y pensar; que, de hecho, es lo que más nos interesa que hagamos juntos}
+
+\section{Números}
+Ahora que ya tenemos todo listo, abran su editor de texto y escriban:
+
+\begin{lstlisting}
+  puts 1 + 2
+\end{lstlisting}
+
+Guarden el programa (con CTRL + S) y pónganle como nombre \emph{calculadora.rb}. Ahora ejecuten el programa con \emph{ruby calculadora.rb} en la línea de comando (en la ventana de DOS) y debería poner un 3 en la pantalla. ¿Vieron? ¡No fue tan difícil!
+
+\section{Introducción a \emph{puts}}
+Entonces ¿qué está pasando en ese programa? Estoy seguro de que podemos adivinar qué es lo que está pasando con el 1+2: nuestro programa hace lo mismo que este:
+
+\begin{lstlisting}
+  puts 3
+\end{lstlisting}
+
+La instrucción puts sencillamente imprime en la pantalla aquello que le pones después, por eso el puts 3 va a dejar en el monitor que tienen enfrente un número 3.
+
+\section{Enteros y con coma}
+En la mayoría de los lenguajes de programación (y Ruby no es la excepción) los números sin coma se llaman enteros y los números con coma se llaman de punto flotante o ¡con coma! Por ejemplo, acá les mostramos algunos números enteros: 
+
+\begin{itemize}
+  \item 5
+  \item -205
+  \item 99999999999999999999
+  \item 0
+\end{itemize}
+
+Y acá van algunos con punto flotante: 
+
+\begin{itemize}
+  \item 54.321
+  \item 0.001
+  \item -205.3884
+  \item 0.0
+\end{itemize}
+
+En la práctica no solemos usar  números con coma, solamente usamos números enteros (son los más comunes). Claro que hay una razón para ello y es que las cosas de todos los días se nos presentan de manera entera: tenemos 2 hermanos, alquilamos 4 películas, tenemos 17 años, etc. Los números con coma los usamos cuando queremos ser mucho más precisos y en general se usan para cosas científicas locas. Hasta la mayoría de los programas que manejan plata no usan la coma ¡llevan las monedas como enteros!
+
+\section{Vamos a hacer cuentas}
+Hasta ahora, tenemos todo como para hacer nuestra calculadora. Las calculadoras usan números con coma así que si queremos que nuestro programa haga de calculadora ¡vamos a tener que usarlos! Los números los escribimos con el teclado (están en la parte de arriba). Para la coma, en Ruby se usa el . (Punto) y no la coma.  Esto se debe a que los que hicieron Ruby viven en Japón, donde no se usa la coma para los decimales sino el Punto(.)\\
+
+Para la suma y la resta usamos los clásicos signos + y - , como vimos en el primer ejemplo. Para la multiplicación usamos el asterisco (*) y para la división usamos la barra (/). Algunos teclados tienen todos estos símbolos a la derecha.\\
+
+Ahora que sabemos esto, vamos a modificar el programa \emph{calculadora.rb} para extenderlo un poco más. 
+
+\begin{lstlisting}
+puts 1.0 + 2.0
+puts 2.0 * 3.0
+puts 5.0 - 8.0
+puts 9.0 / 2.0
+\end{lstlisting}
+
+Esto es lo que nuestro programa escribiría por pantalla (acordate que \emph{puts} sirve para escribir algo en la pantalla, en este caso escribe el resultado de una cuenta):
+\begin{lstlisting}
+3.0
+6.0
+-3.0
+4.5
+\end{lstlisting}
+
+Ahora vamos a probar con números enteros, o sea sin los decimales:
+
+\begin{lstlisting}
+puts 1+2
+puts 2*3
+puts 5-8
+puts 9/2
+\end{lstlisting}
+
+Los resultados (lo que el programa escribe en la pantalla) son casi los mismos ¿no?...
+
+\begin{lstlisting}
+3
+6
+-3
+4
+\end{lstlisting}
+
+... Salvo por ese 4 al final. Lo que sucede es que cuando la computadora hace cuentas con números enteros, el resultado siempre va a ser un entero. Y si  al hacer una división, el resultado no es un número entero sino que tiene decimales, entonces redondea para abajo. Pero ¿para qué sirve la división entera?\\
+
+Imaginemos que la entrada al cine sale $8 y tenemos $50. ¿Cuántas entradas podemos comprar con $50? ¡6! No podemos comprar 6,25. Digo, con los $2 que sobran de vuelto ¡en el cine no te van a dar un cuarto de entrada!. Algunas cosas no son divisibles.\\
+
+Ahora vamos a experimentar un poco. Si queremos hacer cuentas más difíciles, podemos usar los paréntesis... por ejemplo:
+
+\begin{lstlisting}
+puts 5 * (12-8) + -15
+puts 98 + (59872 / (13*8)) * -51
+\end{lstlisting}
+
+Lo que da como resultado
+\begin{lstlisting}
+5
+-29227
+\end{lstlisting}
+
+\section{Letras y Palabras}
+Ahora que ya aprendimos sobre los números en Ruby, vamos a ver qué pasa con las letras ¿y las palabras? En el mundo de la programación solemos referirnos a las letras como caracteres y a las palabras como cadenas de caracteres o strings (en inglés). En Ruby, las cadenas de caracteres siempre van encerradas entre ' ' (comillas simples) o “ ” (comillas dobles). Ejemplos de cadenas de caracteres serían:
+
+\begin{itemize}
+  \item 'Hola.'
+  \item 'Ruby esta re-bueno'
+  \item '5 es mi número favorito...y el tuyo?'
+  \item 'Cuando me martillo un dedo digo \^?*!@.'
+  \item ' '
+\end{itemize}
+
+Como podemos ver, algunas cadenas no son solo con letras del abecedario. Los caracteres también pueden ser los signos de puntuación, los números, los espacios, el signo de pregunta y cualquier simbolito que puedas tener en el teclado. Si la cadena no tiene caracteres entonces se la denomina cadena vacía.\\
+
+Si recuerdan, habíamos usado la instrucción \emph{puts} para escribir por la pantalla el resultado de una cuenta o un número. ¡Ahora la vamos a usar para escribir cadenas! Para esto hagamos un nuevo programa que se llamará \emph{presentacion.rb}
+
+\nota{Aclaración}{Todos los programas de Ruby tienen la extensión .rb por ese motivo ponemos esto al final de cada uno de los nombres de los programas}
+
+\begin{lstlisting}
+  puts 'Hola a todos'
+  puts 'mi nombre es Charly'
+  puts 'uf.........()\%/?'
+\end{lstlisting}
+
+¡Ustedes fíjense que es lo que el programa hace ahora!
+
+\section{Operaciones con las cadenas}
+
+Con las cadenas también podemos hacer algunas cuentas locas. No todas, pero algunas si...por ejemplo:
+
+\begin{lstlisting}
+  puts 'me gusta' + 'el apio'
+\end{lstlisting}
+
+Para poder ejecutar este programa hay que escribir \emph{ruby presentacion.rb} y en la ventana de DOS vemos:
+\begin{lstlisting}
+  me gustael apio
+\end{lstlisting}
+
+¡Uy! ¡Pucha! ¡Me olvide de poner un espacio! ¡No voy a esperar que Ruby sepa castellano también! Hay un dicho que dice: “Las computadoras no van a hacer lo que vos querés, van a hacer lo que les dijiste que hagan”. Para corregir esto podemos hacer cualquiera de estas tres opciones:
+
+\begin{lstlisting}
+  puts 'me gusta ' + 'el apio'
+  puts 'me gusta' + ' ' + 'el apio'
+  puts 'me gusta' + ' el apio'
+\end{lstlisting}
+
+Como se puede ver (si ejecutamos el programa) no es muy importante donde ponemos el espacio. Fíjense que después del + hay un espacio en el segundo ejemplo y ninguno en el primero.\\%FIXME: No entiendo esta nota
+
+Ahora sabemos que podemos sumar cadenas, pero ¿qué pasa si hacemos?:
+
+\begin{lstlisting}
+  puts 'hola soy charly'*4
+\end{lstlisting}
+
+El programa debería responder:
+\begin{lstlisting}
+  ya te escuche... cuantas veces me lo vas a decir
+\end{lstlisting}
+
+¡Ja! ¡No! ¡Ruby no es taaaaaan piola! Lo que se debería ver es:
+
+\begin{lstlisting}
+hola soy charlyhola soy charlyhola soy charlyhola soy charly
+\end{lstlisting}
+
+Bueno, vamos a jugar un poco con todo esto ahora:
+\begin{lstlisting}
+  puts 12 + 12
+  puts ' 12' + ' 12'
+  puts ' 12 + 12'
+\end{lstlisting}
+
+Esto daría:
+\begin{lstlisting}
+  24
+  1212
+  12 + 12
+\end{lstlisting}
+
+En el primer caso el resultado da 24 porque Ruby entiende que suma dos números enteros, sin embargo en el segundo caso se da cuenta de que son dos cadenas y por eso las concatena, pero en el último caso, lo único que le estamos diciendo que muestre por pantalla '12 + 12' como si fuera una palabra. ¿Y qué tal esto?:
+\begin{lstlisting}
+  puts 2 * 5
+  puts ' 2' * 5
+  puts ' 2 * 5'
+\end{lstlisting}
+
+A ver...
+\begin{lstlisting}
+  10
+  22222
+  2 * 5
+\end{lstlisting}
+
+\section{Ya empezamos a tener problemas...}
+A esta altura, capaz que alguno se sintió tentado de probar alguna cosa que no funciona, como:
+\begin{lstlisting}
+  puts '12' + 12
+  puts '2' * '5'
+\end{lstlisting}
+
+Esto da un error como:
+\begin{lstlisting}
+  #<TypeError: cannot convert Fixnum into String>
+\end{lstlisting}
+
+Lo que dice Ruby es algo así como “No puedo mezclar peras con bananas”. En realidad, lo que dice es que no puede convertir un número en una cadena de caracteres. El verdadero problema es que no se puede sumar el 12 al '12' ya que sería sumar un número a un texto. La línea de abajo tampoco funcionaría porque no podemos multiplicar dos cadenas. Simplemente ¡Ruby no te deja! (además, hacer eso sería ilógico)
