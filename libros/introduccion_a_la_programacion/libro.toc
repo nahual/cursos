@@ -15,13 +15,16 @@
 \contentsline {section}{Operaciones con las cadenas}{8}{section*.16}
 \contentsline {section}{Ya empezamos a tener problemas...}{9}{section*.17}
 \contentsline {chapter}{3er semana - Variables y Compoteras}{11}{chapter*.18}
-\contentsline {chapter}{4ta semana - \IeC {\textquestiondown }Qu\IeC {\'e} pasa si...?}{13}{chapter*.19}
-\contentsline {chapter}{5ta semana - Programar Jugando / La Mansi\IeC {\'o}n Man\IeC {\'\i }aca}{15}{chapter*.20}
-\contentsline {chapter}{6ta semana - Nuestro primer juego (de texto)}{17}{chapter*.21}
-\contentsline {chapter}{7ma semana - \IeC {\textquestiondown }Qu\IeC {\'e} aprendimos hasta ahora?}{19}{chapter*.22}
-\contentsline {chapter}{8va semana - Tratemos de no escribir tanto}{21}{chapter*.23}
-\contentsline {chapter}{9na semana - Repaso y Ejercicios}{23}{chapter*.24}
-\contentsline {chapter}{10ma semana - Cajones llenos de cosas (listas)}{25}{chapter*.25}
-\contentsline {chapter}{11va semana - Funciones}{27}{chapter*.26}
-\contentsline {chapter}{12va semana - Jugando con las funciones de otro}{29}{chapter*.27}
-\contentsline {chapter}{13va semana - Fin}{31}{chapter*.28}
+\contentsline {section}{Introducci\IeC {\'o}n}{11}{section*.19}
+\contentsline {section}{Variables}{11}{section*.20}
+\contentsline {section}{Ejercicios}{13}{section*.21}
+\contentsline {chapter}{4ta semana - \IeC {\textquestiondown }Qu\IeC {\'e} pasa si...?}{15}{chapter*.22}
+\contentsline {chapter}{5ta semana - Programar Jugando / La Mansi\IeC {\'o}n Man\IeC {\'\i }aca}{17}{chapter*.23}
+\contentsline {chapter}{6ta semana - Nuestro primer juego (de texto)}{19}{chapter*.24}
+\contentsline {chapter}{7ma semana - \IeC {\textquestiondown }Qu\IeC {\'e} aprendimos hasta ahora?}{21}{chapter*.25}
+\contentsline {chapter}{8va semana - Tratemos de no escribir tanto}{23}{chapter*.26}
+\contentsline {chapter}{9na semana - Repaso y Ejercicios}{25}{chapter*.27}
+\contentsline {chapter}{10ma semana - Cajones llenos de cosas (listas)}{27}{chapter*.28}
+\contentsline {chapter}{11va semana - Funciones}{29}{chapter*.29}
+\contentsline {chapter}{12va semana - Jugando con las funciones de otro}{31}{chapter*.30}
+\contentsline {chapter}{13va semana - Fin}{33}{chapter*.31}
