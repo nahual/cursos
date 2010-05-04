@@ -1,1 +1,155 @@
 \chapter{4ta semana - ¿Qué pasa si...?}
+\nota{Introducción}{En la tercera semana aprendimos sobre cómo hacer para utilizar variables, como sumarlas, como mostrarlas en la pantalla y para esto utilizamos todo lo que aprendimos también en la semana 2}
+\nota{Objetivo}{El paso que queremos dar es tal vez el más importante de todo el curso, es enseñarla a nuestros programas a tomar decisiones. A poder hacer alguna acción dependiendo de una condición}
+\nota{Cómo lo vamos a hacer}{Vamos a aprender mediante muchos ejemplos, ya que es un concepto muy importante, de hecho es probable que tardemos más de una semana con este tema}
+
+\section{Empezar a interactuar}
+Sí, ya se, están aburridos de decirle a la compu que hable, que sume letras, que haga cosas y que ella muy sobradora nunca pregunte por nosotros. Bueno se acabo ¡que empiece a hablar! ¡la queremos escuchar!. ¿Cómo se empieza a hablar con alguien? Si lo queremos hacer de la forma más educada tenemos que arrancar con un saludo.\\
+
+Ejemplo 1. Saludando
+\begin{lstlisting}
+  puts 'Hola, Cual es tu nombre?'
+  nombre = gets
+  puts 'Tu nombre es ' + nombre
+  puts 'Un placer hablar con vos, ' + nombre + ' . :)'
+\end{lstlisting}
+
+Ejemplo 2. Saludando sin espacios\\
+
+El resultado de esto es que el saludo final sale con un espacio, entonces el código que soluciona esto es:
+
+\begin{lstlisting}
+  puts 'Hola, Cual es tu nombre?'
+  nombre = gets.chomp
+  puts ' Tu nombre es ' + nombre
+  puts ' Un placer hablar con vos, ' + nombre + ' . :)'
+\end{lstlisting}
+
+\section{Control de Flujo}
+En general llamamos control de flujo a todas las acciones que hacemos para controlar la ejecución de un programa, esto es importante en esta unidad ya que con el \emph{if} estamos empezando a controlar el flujo del programa según las condiciones que definamos. No se preocupen si no se entiende ahora con los ejemplos y las demás unidades vamos a ir entrando más en detalle y va a ser mucho más sencillo.
+
+\subsection{Condiciones}
+Una condición en un lenguaje de programación es exactamente lo mismo que en la vida misma, representa una circunstancia que puede, o no, cumplirse. Por ejemplo que mi edad sea mayor a 20 años, que mi nombre empiece con “M” y cosas similares.
+
+\subsubsection{Ejemplos}
+La idea de estos ejemplos es que empecemos a ver el funcionamiento de los condicionales, las preguntas que le podemos hacer a la maquina.
+
+\begin{lstlisting}
+puts 1 > 2
+puts 1 < 2
+\end{lstlisting}
+
+¿Qué hace la maquina acá?\\
+
+En la primer línea pregunta ¿1 es Mayor que 2? Debería devolverle que no, y en el idioma de la maquina eso es \emph{false}.\\
+
+En la segunda línea pregunta ¿1 es Menor que 2? Y acá la máquina nos devuelve \emph{true} o sea que la pregunta que le hicimos es verdadera.\\
+
+\subsubsection{Preguntando más pavadas}
+Vamos a ver ahora cómo hacemos con las preguntas un poco más complicadas, como cuando no es solamente algo más grande sino también igual o distinto. Y como ya estamos hechos unos Dieguitos Maradonas de la programación, vamos a hacer unas cuantas preguntas juntas.
+
+\begin{lstlisting}
+puts 5 >= 5
+puts 5 <= 4
+puts 1 == 1
+puts 2 !=  1
+\end{lstlisting}
+
+¿Y ahora? ¿Qué nos tiene que devolver la máquina?\\
+
+En la primera línea, la máquina va a preguntar si 5 es más grande o igual a 5. Entonces podemos separar en dos partes la pregunta: si es más grande o si es igual. Por lo tanto la pregunta para la maquina es verdadera, entonces nos responde \emph{true} que, como vimos antes, es la forma en que nos responde nuestra amiga la compu.\\
+
+En la segunda línea va a preguntar si 5 es menor o igual que 4 ¿y es? ¡puesh que no hombre! 5 no es menor y tampoco es igual a 4, así que la respuesta en el idioma de la compu será \emph{false}, que espero  ya sepan qué significa en idioma castellano.\\
+
+En la tercera línea tenemos una pregunta que se escribe raro, pero que es recontra fácil: está preguntando si uno es igual a uno...la máquina y nosotros vamos a estar de acuerdo en que es verdadero.\\
+
+Y en la cuarta línea, te la debo ¡arreglatela solito ahora! Bueno, les cuento, acá estamos preguntando si las cosas son diferentes a otras cosas, o sea estamos preguntando si 2 es diferente a 1 ¿ y qué les parece?...a la compu si, dice \emph{true}, o sea que es verdadero que uno es diferente a dos.
+
+\subsubsection{Preguntando sobre letras}
+Ahora la cosa se empieza a complicar porque vamos a ver qué pasa si empezamos a hacer preguntas sobre palabras, todo esto para después ir armando nuestro primer jueguito interactivo.
+
+\begin{lstlisting}
+puts 'perro' < 'gato'
+puts 'perro' < 'Zoologico'
+puts 'perro'.downcase < 'Zoologico'.downcase
+\end{lstlisting}
+
+Y vamos de nuevo con qué cosas nos responde la PC. Pero antes de tratar de adivinar vamos con un poquito de teoría.
+
+\nota{Teoria}{Cuando le pedimos a la compu que compare palabras, tiene en cuenta el orden alfabético. O sea, se fija si una palabra es mas chiquita o no, de acuerdo a como se ordena alfabéticamente. Pero ¡ojo! Para la computadora las mayúsculas son más chiquitas que las minúsculas.}
+
+Vamos a analizar entonces, ahora que sabemos lo anterior, qué nos tiene que responder la computadora en cada caso.\\
+
+En la primera línea pregunta sí perro es más chico que gato, y ya sé, me van a decir que depende del perro y del gato, pero no, es la palabra perro comparada con la palabra gato, entonces ¿qué dice la teoría? Dice que va a tratar de comparar considerando el orden alfabético, y entonces la respuesta es NO porque perro empieza con P y gato con G, así que como diría mi amiga la compu \emph{false}.\\
+La segunda tiene una trampita...pero como nosotros ya leímos la teoría la vamos a resolver re fácil. Si nos fijamos de una, “a lo gaucho viejo” como dice mi abuela, vamos a preguntar ¿es perro más chico que Zoológico? y agarramos nuestros diccionarios y vemos que la P está antes que la Z, y vamos a decir \emph{true} porque ya sabemos hablar como la compu ¿pero qué dice siempre mi abuela? ¡Ojo al piojo! Si recordamos lo que decía la teoría, para la compu las mayúsculas son más chiquitas que las minúsculas, por lo tanto ¿qué dice la compu? ]\emph{false} grandote como la dentadura de la abuela.\\
+
+Y en la tercera línea ya todo es un descontrol, parece un Temperley contra los Andes ya, mandamos cualquiera. Pero pensemos qué podría ser eso de \emph{downcase}, en realidad es re fácil, decimos si la compu nos hace las mayúsculas más chiquitas y yo quiero comparar palabras entonces por las dudas le digo “palabra ponete en minúsculas”, así a perro y así a Zoológico, ¿para qué?, para que se transformen todas a lo mismo y las pueda comparar bien sin el problema es de que las mayúsculas son siempre mas chiquitas. Y la palabra \emph{downcase} no es otra cosa que minúsculas pero en inglés...era recontra fácil al final.
+
+
+\subsubsection{Otro Ejemplo: Oráculo}
+La idea es hacer un programita que dado un nombre nos diga la edad de esa persona. El código es el siguiente:
+
+\begin{lstlisting}
+  puts 'Hola, cual es tu nombre?'
+  nombre = gets.chomp
+  puts 'Tu nombre es : '+nombre+ ' Que lindo nombre..!!!'
+  if  nombre == 'Francisco'
+    puts 'La edad de Francisco es 26 anios'
+  else
+    if nombre == 'Mariano'
+      puts 'La edad de Francisco es 27 anios'
+    else
+      puts 'No conozco la edad de:' + nombre
+    end
+  end
+\end{lstlisting}
+
+\nota{Aclaración}{El poner \emph{gets} hace que la computadora ponga en una variable lo que un usuario escribió por pantalla, es la forma de que la computadora pueda guardar las respuestas o las opciones que escribe una persona por pantalla. El problema con esto es que la compu suele traer muchos espacios al final y para evitar eso ponemos \emph{gets.chomp}}
+
+¿Qué hace la maquina acá?\\
+
+La máquina pregunta el nombre, luego con el nombre que ingresamos nosotros pregunta si es igual a cada uno de los nombres que ella conoce (en este caso, Francisco y Mariano). Si el nombre ingresado no es ninguno de estos dos, nos avisa que no conoce la edad de la persona ingresada.
+
+\subsubsection{Sentencia if (SI)}
+En este ejemplo vimos que aparece una sentencia que no conocíamos \emph{if} (SI). Esta sentencia evalúa una condición (como las vistas anteriormente). Si esa condición es verdadera, ejecuta la siguiente instrucción, caso contrario no ejecuta nada.\\
+
+Esta es una instrucción muy utilizada cuando programamos, de esta manera le enseñamos a la computadora a tomar decisiones simples que nos llevaran a resolver problemas más complejos. Recordemos que la idea de programar es solucionar problemas muy difíciles descomponiéndolos en pequeños problemitas que sean más simples.\\
+
+También aparece otra sentencia que es \emph{else} (SINO). Esta sentencia aparece siempre acompañando a una sentencia \emph{if}, y significa que si no se cumplió la condición evaluada en el if entonces ejecute otra instrucción.
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\rowcolor[gray]{0.9}Instrucciones a la Computadora & Lenguaje Humano \\
+\hline
+\begin{lstlisting}[language=ruby]
+if nombre == 'Mariano'
+  puts 'Mariano tiene 27 anios'
+else
+  puts 'No conozco esa persona'
+\end{lstlisting} & \begin{lstlisting}
+Si el nombre es igual a Mariano, entonces
+  Escribi 'Mariano tiene 27 anios' 
+Sino
+  Escribi 'No conozco esa persona'
+\end{lstlisting} \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Ejercicios}
+\ejercicio{Edades}{Hacer un programa en Ruby que pregunte por el teclado la edad del usuario y determine, a partir de la respuesta, si es mayor de Edad o no.}
+
+\ejercicio{Dividiendo}{Hacer un programa en Ruby que solicite dos números por teclado, realice su división y muestre el resultado por pantalla. En caso de que el segundo número ingresado es cero mostrar el cartel de error correspondiente.}
+
+\ejercicio{Milagros}{Hacer un programa que muestre, a modo de menú de opciones lo siguiente:\\
+
+Eljia su milagro preferido:\\
+\begin{enumerate}
+  \item Que lluevan petalos de rosa
+  \item Que caigan Bonobons del cielo
+  \item Que gane la lotería
+  \item Que Brad Pitt (o Angelina Jolie, segun sea el caso) me de bola
+\end{enumerate}
+
+Luego de mostrar el menú, que solicite el ingreso por teclado de la opción y realice el milagro correspondiente.}
