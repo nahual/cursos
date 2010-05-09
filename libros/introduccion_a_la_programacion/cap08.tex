@@ -1,1 +1,139 @@
 \chapter{8va semana - Tratemos de no escribir tanto}
+\nota{Introducción}{Después de repasar todo lo que fuimos aprendiendo y del examen, ahora podemos empezar a aprender algunas herramientas que hacen más sencillo programar}
+\nota{Objetivo}{El objetivo de esta semana es aprender sobre los bucles o \emph{loops} que nos permiten ejecutar sentencias que se repiten}
+\nota{Cómo lo vamos a hacer}{Vamos a ir mostrando con ejemplos y ejercicios simples las diferentes formas de repetir que tenemos en Ruby}
+
+\section{Control de Flujo}
+Ahora vamos a manejar un poco el flujo del programa con cosas más divertidas que solo preguntar cosas de a una. Las palabras claves de esta clase son:
+
+\subsection{Iterando}
+Uh ¡se puso difícil la cosa! Esto de iterar suena raro pero van a ver que es una pavada... y no se asusten, porque encima les tengo que contar como se dice en ingles: \emph{loop}. Raro ¿no? Bueno, no tanto. Les cuento un poco cuándo se usa.\\
+
+Resulta que cuando tenemos que repetir muchas veces una acción, como mostrar los números de uno a 20, es medio aburrido hacer:
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\rowcolor[gray]{0.9}Instrucciones a la Computadora & Lenguaje Humano \\
+\hline
+\begin{lstlisting}[language=ruby]
+puts 1
+puts 2
+puts 3
+puts 4
+puts 5
+puts 6
+...
+...
+puts 19
+puts 20
+\end{lstlisting} & \begin{lstlisting}
+mostra el uno
+mostra el dos
+mostra el tres
+mostra el cuatro
+mostra el cinco
+mostra el seis
+...
+...
+mostra el 19
+mostra el 20
+\end{lstlisting} \\
+\hline
+\end{tabular}
+\end{center}
+
+Y así...hasta mi abuela que es re pilas se aburre y se va de viaje a Mar del Plata con los jubilados. Entonces, ¿cómo podemos hacer con la compu? Podemos decirle algo así:
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\rowcolor[gray]{0.9}Instrucciones a la Computadora & Lenguaje Humano \\
+\hline
+\begin{lstlisting}[language=ruby]
+numero = 0;
+while numero < 20
+  puts numero
+  numero = numero + 1
+end
+\end{lstlisting} & \begin{lstlisting}
+define la variable numero en cero
+mientras numero es menor a veinte
+muestra el valor de numero
+suma en uno a numero
+repetir eso
+\end{lstlisting} \\
+\hline
+\end{tabular}
+\end{center}
+
+No sé ustedes, pero mi abuela y yo preferimos hacerlo así porque, además, si en vez de veinte son cien, es más difícil y para algo tenemos la compu ¿no?
+
+\subsection{La estructura estándar de un loop}
+Analicemos ahora un poco más en detalle el ejemplo anterior, veamos la primera línea de código:
+
+\begin{lstlisting}
+numero = 0
+\end{lstlisting}
+Esto, que parece tan trivial, realmente tiene mucha importancia: estamos inicializando la variable \emph{numero} en cero. Hacemos esto porque queremos contar desde 0 hasta 19, ahora ¿qué pasaría si quisiéramos contar desde 1? Simplemente cambiaríamos el valor de número por un valor inicial en uno:
+
+\begin{lstlisting}
+numero = 1
+\end{lstlisting}
+
+Veamos ahora la siguiente línea
+\begin{lstlisting}
+while numero < 20
+\end{lstlisting}
+
+En esta línea tenemos algo que es clave, es la condición que se tiene que cumplir para que la compu siga iterando, en nuestro caso el número que se muestra llegaría hasta el 19, pero ¿Qué pasaría si queremos que llegue hasta el 20? ¿qué tenemos que cambiar? La respuesta es: la condición, tenemos que hacer una que incluya el 20, ya que menor que 20 no lo incluye, pero menor o igual a 20 si.
+\begin{lstlisting}
+while numero <= 20
+\end{lstlisting}
+
+Acá estaríamos diciéndole hace mientras el numero sea menor o IGUAL a 20, y esa condición si la cumple el 20.\\
+
+La siguiente línea es bastante simple, es imprimir el número.
+\begin{lstlisting}
+puts numero
+\end{lstlisting}
+
+Esta era fácil, pero la que se viene es otra importantísima: es el incremento de la variable \emph{numero} ¿Qué significa eso? significa el pequeño paso que voy a avanzar en cada uno de las iteraciones. En este caso, como estoy sumando los números consecutivos de a uno:
+\begin{lstlisting}
+numero = numero + 1
+\end{lstlisting}
+
+\subsection{Iterando con preguntas}
+Bueno, pero ahora tenemos que repetir cosas con preguntas y palabras, ¿Qué se pensaban? ¿Qué era joda esto? Vamos a ver que no es tan difícil ¡al contrario! les va a resultar tan fácil que se van a terminar yendo de vacaciones con la abuela.\\
+
+Miremos el ejemplo de despedida:
+\begin{lstlisting}
+input = ' '
+while input != 'chau'
+  puts input
+  input = gets.chomp
+end
+puts 'Vuelvan prontoooo!!!'
+\end{lstlisting}
+
+Acá usamos bastantes cosas divertidas, como el “hacer mientras” que aprendimos recién y el \emph{gets} del primer programa interactivo. Se lo dejamos para que nos lo expliquen ustedes.
+
+\section{Ejercicios}
+\begin{ejercicio}{Variables}{
+\begin{enumerate}
+  \item Hacer un programa que muestre los números que van del 30 al 50
+  \item Hacer un programa que muestre los números pares entre 1 y 70
+  \item Hacer un programa que muestre los números impares entre 2 y 90
+  \item Hacer un programa que muestre los números entre 1 y 70, pero al revés, o sea empezando por el 70, siguiendo por el 69, 68...
+  \item Hacer un programa que ingresando un número lo eleve al cuadrado (ejemplo: 5 al cuadrado (2) = 25)
+  \item Hacer un programa que ingresando un número lo eleve al cubo (ejemplo: 2 al cubo (3) = 8)
+  \item Hacer un programa que ingresando un número lo eleve a cualquier potencia (pedir el número y la  potencia. Ejemplo: 2 a la cuarta = 16)
+  \item Hacer un programa que escriba al revés una palabra dada (ejemplo: Mariano => onairaM)
+  \item Hacer un programa que calcule el resto de una división (pedir el dividendo y el divisor. ejemplo: el resto de 7 dividido 2 es 1)
+  \end{enumerate} 
+}
+\end{ejercicio}
+
+\subsection{Ejercicio resuelto}
+Solución del ejercicio de la palabra:
+\lstinputlisting{code/cap08_ej_palabras.rb}
