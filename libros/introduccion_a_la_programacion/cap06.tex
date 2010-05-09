@@ -1,1 +1,51 @@
 \chapter{6ta semana - Nuestro primer juego (de texto)}
+\nota{Introducción}{Ya somos capaces de controlar el flujo de un programa, o al menos estamos empezando a hacerlo, además ya entendemos lo que son las instrucciones, las condiciones, es hora de empezar a crear nuestros propios juegos!}
+\nota{Objetivo}{El objetivo de esta semana es realizar nuestro primer juego, fortaleciendo nuestro conocimiento sobre cómo interactuar con la computadora}
+\nota{Cómo lo vamos a hacer}{Vamos a desarrollar el juego utilizando todo lo que aprendimos hasta ahora interactuando con el usuario mediante las sentencias \emph{puts} y \emph{gets}, y luego manejando el flujo del programa con la sentencia \emph{if}}
+
+\section{Nuestro primer juego}
+La idea de nuestro primer juego es hacer un juego de consola, como el que jugamos el otro día. Sólo que el nuestro va a ser sólo en modo texto ¿qué significa modo texto? la aburrida pantallita negra que venimos viendo todos los días... si, si, es tristísimo ¡pero no tanto, che! Ya le vamos a poner dibujitos, no se preocupen.\\
+
+Entonces, vamos a plantear un problema y las opciones que tiene nuestro jugador. En base a lo que él elija, irán sucediendo diferentes situaciones que, básicamente, nos llevarán a una nueva situación.
+
+\section{Introducción}
+El joven Charly se despierta una mañana y nota que es muuuy tarde y que hoy, exactamente hoy, es la prueba final de matemática con la profesora Marta, famosa por desaprobar a todos (y sobre todo a los que llegan tarde).\\
+
+Charly salta de la cama y se da cuenta de que tiene casi toda la ropa puesta, con lo cual no necesita vestirse, pero... ¡no encuentra las Zapatillas!
+
+\subsubsection{Situación 1}
+Charly necesita conseguirse el par de zapatillas para poder salir corriendo. Entonces, en esta secuencia la idea es que se consiga las zapatillas.\\
+
+Ahora deberíamos plantear las opciones que tenga Charly, se me ocurren por ejemplo:
+\begin{itemize}
+  \item Ver abajo de la cama
+  \item Buscar entre la ropa tirada en la pieza
+  \item Fijarse dentro del armario
+  \item Seguir durmiendo
+\end{itemize}
+
+Entonces ¿qué hacemos con las respuestas? digamos que se elige la opción “Ver abajo de la cama”. La Compu le debería responder “No hay nada abajo de la cama”... y volver a presentar la introducción.\\
+
+Si elije la siguiente opción (“Buscar entre la ropa tirada en la pieza”), debería decirle que tiene una zapatilla ¿qué desea hacer?:
+\begin{itemize}
+  \item Agarrarla.
+  \item Dejarla tirada.
+\end{itemize}
+
+Cualquiera de las dos opciones debería llevarlo de nuevo a la introducción... Sólo que, si decidió agarrar la zapatilla (como me imagino que hará cualquier ser humano normal), entonces deberíamos guardar en algún lugar la zapatilla agarrada.\\
+
+Si elige “Fijarse dentro del armario” debería suceder lo mismo que en el caso anterior, ya que, como se estarán imaginando, dentro del armario está la otra zapatilla que busca Charly para poder ir a rendir matemática. ¿Qué hacemos entonces? mostramos de nuevo lo mismo:
+\begin{itemize}
+  \item Agarrarla.
+  \item Dejarla en el armario.
+\end{itemize}
+
+Si el pibe es bastante piola y como corresponde ya tiene la otra zapatilla, entonces se deberá mostrar el siguiente mensaje:
+\begin{lstlisting}
+FIN DEL JUEGO: CHARLY SALIO CORRIENDO PARA EL COLEGIO CON SUS DOS ZAPATILLAS!
+\end{lstlisting}
+
+Por supuesto que si elige la última opción, o sea,  Seguir durmiendo, entonces deberá decirle
+\begin{lstlisting}
+FIN DEL JUEGO: MARTA MANDO A CHARLY A RENDIR EN DICIEMBRE!
+\end{lstlisting}
