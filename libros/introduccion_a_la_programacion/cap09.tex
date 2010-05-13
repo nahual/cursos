@@ -1,1 +1,184 @@
 \chapter{9na semana - Repaso y Ejercicios}
+\section{Guía de repaso}
+\nota{Objetivo}{El objetivo de esta guía es ayudarte a buscar cómo resolver pedazos de ejercicios, trabajos prácticos o bien en cualquier momento que te quieras hacer un programa en Ruby, por eso el equipo de Nahual te armó este documento}
+\nota{Como usar la guía}{La guía está escrita de una manera amigable para que te sea fácil buscar lo que querés, la mayoría de los títulos van a ser sentencias, y vamos a tratar de que tengan también ejemplos para que puedas usarlas}
+
+La guía arranca de lo más fácil a lo más complejo, por lo tanto, si vos estás buscando algo como iteradores o condiciones que son las últimas cosas que vimos, es probable que las encuentres cerca del final, y si buscás cómo convertir datos o cómo transformar un numero en una letra y cosas así que vimos al principio, van a estar en la primer parte.
+
+\subsection{Mostrar un mensaje en la pantalla}
+Cuando un ejercicio nos dice, por ejemplo, que tenemos que poder elevar un numero a cualquier potencia, lo más básico es pensar que vamos a mostrarle al usuario un mensaje que diga, “ingrese un numero:”, esto se hace en Ruby con:
+\begin{lstlisting}
+puts 'Ingrese un numero'
+\end{lstlisting}
+
+\subsection{Mostrar un número en pantalla}
+\begin{lstlisting}
+puts 5
+\end{lstlisting}
+
+\subsection{Recibir un dato de la pantalla}
+Cuando quiera guardar un dato que me ingresan, lo hago en una variable, por ejemplo numero, entonces tengo que hacer:
+\begin{lstlisting}
+puts 'Ingrese un numero'
+numero = gets.chomp
+\end{lstlisting}
+
+Y ahí el valor de lo que el usuario escriba por pantalla queda en la variable numero, por ejemplo
+
+\begin{lstlisting}
+puts 'Ingrese su nombre'
+nombre = gets.chomp
+\end{lstlisting}
+\subsection{Convertir un número a letra}
+Muchas veces tenemos que escribir un mensaje, por ejemplo, que sea "el resultado es 2" y esto es bastante complicado porque 2 es un número, entonces hacemos lo siguiente
+
+\begin{lstlisting}
+2.to_s
+\end{lstlisting}
+
+\subsection{Convertir una letra a número}
+Cuando recibimos los datos desde la pantalla son solo letras, entonces de golpe uno puede querer convertirlos a número, entonces hace:
+
+\begin{lstlisting}
+variable.to_i
+\end{lstlisting}
+
+\subsection{Hacer algo según una condición}
+Si se cumple cierta condición tenemos que hacer algo, sino otra cosa:
+
+\begin{lstlisting}
+if (condicion)
+  hacemos lo que se hace cuando la condicion es verdadera 
+else
+  hacemos lo que se hace cuando es falsa
+end
+\end{lstlisting}
+
+\subsection{Repetir algo mientras se cumple una condición}
+A veces queremos poder repetir algo mientras se cumple una cierta condición
+
+\begin{lstlisting}
+while{condicion}
+ hacer lo que queremos hacer muchas veces
+end
+\end{lstlisting}
+
+\section{Cuestionario chiquito}
+\nota{Objetivo}{Necesitamos ir aprendiendo constantemente y para eso a veces es bueno poder repasar un poquito las cosas que aprendemos, como hoy es un día de repaso vamos a hacer un cuestionario cortito que nos sirve para saber cómo venimos, aclaramos que EL CUESTIONARIO NO LLEVA NOMBRE Y NO ES UNA PRUEBA solamente es para saber dónde estamos parados}
+
+\subsection{Números y Letras}
+\begin{enumerate}
+  \item ¿Qué resultado devuelve hacer 2 + 3?
+  \item ¿Qué resultado devuelve hacer 2.0 + 3?
+  \item ¿Qué resultado devuelve hacer 2 + 3.5?
+  \item ¿Qué resultado devuelve hacer 'Hola' + ' Mariano'?
+\end{enumerate}
+
+\subsection{Condiciones}
+\begin{enumerate}
+  \item ¿Qué resultado devuelve 3 == 3?
+  \item ¿Qué resultado devuelve 3 > 3?
+  \item ¿Qué resultado devuelve 3 >= 3?
+  \item ¿Qué resultado devuelve 'Hola' >= 'Mariano'?
+  \item ¿Qué resultado devuelve 'Hola' >= 'mariano'?
+\end{enumerate}
+
+\subsection{Funciones especiales}
+\begin{enumerate}
+  \item ¿Cómo transformamos de número a letra?
+  \item ¿Cómo transformamos de mayúscula a minúscula?
+  \item ¿Cómo transformamos de letra a número?
+\end{enumerate}
+
+\subsection{Variables}
+\begin{enumerate}
+  \item ¿Qué estamos haciendo cuando hacemos variable = 'Mariano'?
+  \item ¿Qué devuelve el siguiente programita?
+\end{enumerate}
+
+\begin{lstlisting}
+mi_nombre = 'Charly'
+mi_apellido = 'Lizarralde'
+puts 'Yo me llamo ' + mi_nombre + '  y mi apellido es ' + mi_apellido
+\end{lstlisting}
+
+\subsection{Loops}
+En el siguiente programa:
+
+\begin{lstlisting}
+contador = 20
+while contador < 30
+  puts contador
+  contador = contador + 2
+end
+\end{lstlisting}
+\begin{enumerate}
+  \item ¿Con qué valor se inicializa el contador?
+  \item ¿Cuál es la condición?
+  \item ¿En cuanto se incrementa el contador?
+  \item ¿Qué devuelve el programa?
+\end{enumerate}
+
+\section{Ejercicios de repaso}
+\nota{Objetivo}{El objetivo de esta guía es repasar algunos ejercicios que fuimos haciendo y juntarlos, sobre todo los últimos de condiciones y ciclos para que podamos seguir practicando ¡ya que ahora tenemos días para hacer ejercicios!}
+\subsection{Loops}
+\nota{Pistas}{Tenemos que definir las partes de un ciclo repetitivo o loop ¿se acuerdan? la condición, el valor inicial y como incrementamos la variable que vamos sumando}
+\begin{enumerate}
+  \item Hacer un programa que muestre los números que van del 30 al 50
+  \item Hacer un programa que muestre los números pares entre 1 y 70
+  \item Hacer un programa que muestre los números impares entre 2 y 90
+  \item Hacer un programa que muestre los números entre 1 y 70, pero al revés, o sea empezando por el 70, siguiendo por el 69, 68.
+\end{enumerate}
+
+\subsection{Loops, pero con condiciones más difíciles}
+\nota{Pistas}{Ahora vamos a tener que pensar un poco más cuándo terminamos de iterar y cómo calculamos}
+
+Resulta que El Pichuleo, un joven atorrante de Entre Ríos, se fue a comprar ropa a la feria de la salada, pero solo llevó 100 pesos. Necesita comprar varias prendas y los precios que encuentra en la salada son:
+\begin{itemize}
+  \item Jean: 20 pesos
+  \item Zapatillas Nike 40 pesos
+  \item Calzoncillo de Boca: 5 pesos
+  \item Remera de River: 50 pesos
+  \item Remera de Independiente: 50 pesos
+  \item Remera de Boca: 40 pesos
+  \item Ojotas: 15 pesos
+  \item Medias con la foto de Carrió: 13 pesos
+  \item Medias de fútbol: 15 pesos
+\end{itemize}
+
+Entonces, El Pichuleo necesita un programita que le deje ir comprando y siempre le avise cuánta plata le queda. Ejemplo, por pantalla le aparece:
+
+\begin{lstlisting}
+Pichu, te quedan 100 pesos. Que te queres comprar?
+1) Jean
+2) Zapatillas Nike
+3) Calzoncillo de Boca
+4) Remera de River
+5) Remera de Independiente
+6) Remera de Boca
+7) Ojotas 
+8) Medias con la foto de Carrio
+9) Medias de futbol
+0) Salir
+\end{lstlisting}
+Si Pichu elige 2, nuestro programa hace lo siguiente:
+\begin{lstlisting}
+Pichu, te compraste unas zapatillas Nike
+Pichu, te quedan 60 pesos. Que te queres comprar?
+1) Jean
+2) Zapatillas Nike
+3) Calzoncillo de Boca
+4) Remera de River
+5) Remera de Independiente
+6) Remera de Boca
+7) Ojotas 
+8) Medias con la foto de Carrio
+9) Medias de futbol
+0) Salir
+\end{lstlisting}
+
+Si se quiere comprar algo que no le alcanza el programa le dice:
+\begin{lstlisting}
+Pichu, no te alcanza la plata para eso
+\end{lstlisting}
+y sigue hasta que se elige 0 que es salir.
