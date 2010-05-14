@@ -1,1 +1,75 @@
 \chapter{10ma semana - Cajones llenos de cosas (listas)}
+\nota{Introducción}{Después de nueve clases aprendimos las reglas básicas de la programación, ahora vamos a aprender sobre estructuras nuevas de datos y formas más avanzadas de programar}
+
+\nota{Objetivo de esta semana}{El objetivo de esta semana es aprender a usar estructuras de datos como listas, colas y pilas. Con estas estructuras podemos empezar a programar cosas como la agenda de contactos de un celular, si aprendieron lo anterior, esto va a resultar sencillo y más divertido}
+
+\nota{Cómo lo vamos a hacer}{Vamos a empezar  hacer varios ejemplos siempre empezando por las listas más sencillas, después vamos a explicar un poco la diferencia entre las pilas y las colas y finalmente vamos a hacer algunos ejercicios}
+
+\section{Listas}
+Las listas en los lenguajes de programación son básicamente como muchas variables unidas, es tan simple como una lista de compras en el supermercado donde cada uno de los elementos es un artículo (azúcar, arroz, fideos, etc) o como la lista de contactos de un celular.\\
+
+La manera de armar una lista en Ruby es la siguiente:
+
+\begin{lstlisting}
+  lista = []
+\end{lstlisting}
+
+Pero esta lista está vacía, así que no es muy útil, ¿No?. Para tener una lista con números, hacemos así:
+\begin{lstlisting}
+  lista = [1,2,3]
+\end{lstlisting}
+
+Si queremos armar una lista de palabras, ponemos:
+\begin{lstlisting}
+  lista = ['Juan','Pedro','Pablo']
+\end{lstlisting}
+
+\subsection{Índice de un elemento}
+Dentro de las listas cada elemento tiene algo que se conoce como “índice”, que me permite encontrar un elemento dentro de la misma.\\
+
+Si queremos ver en la pantalla el primer elemento que guardamos en la lista tenemos que escribir
+\begin{lstlisting}
+  puts lista[0]
+\end{lstlisting}
+
+El índice que lleva los elementos arranca en 0. Esto a veces es un poco complicado de entender pero uno se acostumbra, recuerden: \emph{En las listas el primer elemento es el de índice CERO}.\\
+
+Ahora, claro con la lista tenemos que poder hacer cosas como agregarle elementos:
+\begin{lstlisting}
+  lista << 4
+\end{lstlisting}
+
+En este caso le agregamos el numero 4. Por último le podemos preguntar cosas como por ejemplo su tamaño:
+\begin{lstlisting}
+  puts lista.length
+\end{lstlisting}
+
+También, si queremos ¡podemos imprimir la lista entera!
+\begin{lstlisting}
+  puts lista
+\end{lstlisting}
+
+En este caso veríamos todos los números uno atrás del otro.\\
+
+Vamos a ver un ejemplo sencillo: hagamos un programa que permita recorrer una lista e imprima todos los números menores o iguales a 5 
+
+\begin{lstlisting}
+lista = [1,2,3,4,5,6,7,8,9,10]
+i = 0
+while ( i < lista.length )
+  if ( lista[i] <= 5 )
+    puts lista[i]
+  end
+end
+\end{lstlisting}
+
+\section{Ejercicios}
+\ejercicio{Listas (¡son todos sobre el mismo programa!)}{
+\begin{enumerate}
+  \item Hacer un programa que cree una lista con los números 23,45 y 78. Al final debe imprimir la lista por pantalla.
+  \item Modificar el programa para que la computadora pida un número más por teclado y luego lo agregue a la lista (acordarte de que para transformar a números las letras hay que escribir:  ¡\emph{to\_i} !)
+  \item Modificar el ejercicio 1 para que al final muestre por pantalla el tamaño de la lista.
+  \item Modificar el ejercicio para que al inicio del programa, en vez de que la lista tenga 3 números fijos, los solicite todos por el teclado.
+  \item Hacer un programa para que recorra la lista y muestre nada más los números menores que 10.
+\end{enumerate}
+}
