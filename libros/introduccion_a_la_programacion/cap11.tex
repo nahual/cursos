@@ -1,1 +1,126 @@
 \chapter{11va semana - Funciones}
+\nota{Introducción}{En las últimas clases estuvimos viendo cómo hacer para no tener que escribir tanto. Aprendimos sobre los \emph{loops} y, de esa manera, cuando queremos repetir muchas veces lo mismo no tenemos que escribirlo muchas veces. Sin embargo, todavía hay veces que repetimos líneas que queremos usar, o escribimos un montón de código y queda todo desordenado}
+
+\nota{Objetivo}{En la clase de hoy vamos a ver cómo hacer para definir funciones y ordenar nuestros códigos. Cuando hagamos estas funciones vamos a poder usarlas muchas veces siempre que queramos hacer lo mismo}
+
+\nota{Cómo lo vamos a hacer}{Vamos a definir varias funciones y tratar de entender sobre cada parte de las mismas, desde los parámetros hasta el valor que devuelven algunas y, como siempre, practicar con ejemplos simples}
+
+\section{Una función básica}
+Para empezar, vamos a definir nuestra primera función que diga \emph{beeeeeeeeeee}
+
+\begin{lstlisting}
+def deci_bee
+  puts 'beeeeeeeeeee...'
+end
+\end{lstlisting}
+
+Si ejecutamos el programa, resulta que no pasa nada, no pasa lo mismo que antes y sale por la pantalla \emph{beeeeeeeeeee...}\\
+
+Lo que hay que hacer es llamar a la función deci\_bee, con lo cual el código quedaría
+\begin{lstlisting}
+def deci_bee
+  puts 'beeeeeeeeeee...'
+end
+deci_bee
+\end{lstlisting}
+Vemos que en la última línea simplemente escribimos \emph{deci\_bee}, esto hace que se llame a la función y aparezca por pantalla \emph{beeeeeeeeeee...}
+
+\section{Los parámetros}
+Si si, esta es una clase aburrida, pero bueno, no quedan muchas más clases aburridas y hay que aprenderse un par de palabritas más ¡no es para tanto, che!. Entre esas palabras aburridas está \emph{parámetro}: no es para nada difícil, se trata de los valores que pasamos a las funciones. Por ejemplo, imaginemos ahora que queremos que diga \emph{beeeeeeeeeee...} muchas veces, en diferentes momentos, por ejemplo:
+\begin{lstlisting}
+def deci_bee cantidad_de_veces
+  puts ' beeeeeeeeeee...' * cantidad_de_veces
+end
+\end{lstlisting}
+
+Y ahora queremos escribir un código que diga que tengo una ovejita Pancha que dice 5 veces \emph{beeeeeeeeeee}, otra ovejita Juliana que dice 7 veces \emph{beeeeeeeeeee} y Dolly que dice 14 veces \emph{beeeeeeeeeee}, el código podría ser:
+
+\begin{lstlisting}
+def deci_bee cantidad_de_veces
+  puts ' beeeeeeeeeee...' * cantidad_de_veces
+end
+
+puts 'La ovejita Pancha dice: ' 
+deci_bee 5
+puts 'La ovejita Juliana dice: ' 
+deci_bee 7
+puts 'La ovejita Dolly dice: ' 
+deci_bee 14
+\end{lstlisting}
+
+El resultado es:
+\begin{lstlisting}
+
+La ovejita Pancha dice: 
+beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee...
+La ovejita Juliana dice: 
+beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee...
+La ovejita Dolly dice: 
+beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee... beeeeeeeeeee...
+\end{lstlisting}
+
+Analicemos un poquito este código y de paso repasemos lo de funciones y lo de parámetros, en la parte que dice:
+\begin{lstlisting}
+def deci_bee cantidad_de_veces
+  puts ' beeeeeeeeeee...' * cantidad_de_veces
+end
+\end{lstlisting}
+
+Estamos definiendo (por eso se usa \emph{def}) que el nombre de la función es \emph{deci\_bee}. Ahora bien, después de eso hay un espacio y dice \emph{cantidad\_de\_veces}, este es el parámetro que en este caso le dice a la función \emph{deci\_bee} cuántas veces se tiene que repetir.\\
+
+El código que sigue:
+\begin{lstlisting}
+puts 'La ovejita Pancha dice: ' 
+deci_bee 5
+puts 'La ovejita Juliana dice: ' 
+deci_bee 7
+puts 'La ovejita Dolly dice: ' 
+deci_bee 14
+\end{lstlisting}
+
+Lo que hace es llamar a la función con diferentes valores para el parámetro, por ejemplo cuando hacemos 
+\begin{lstlisting}
+deci_bee 5
+\end{lstlisting}
+
+Queremos decir que llame a la función \emph{deci\_bee} y que repita 5 veces.
+
+\section{Devolver un valor}
+Bueno, ahora ¿cómo hacemos para devolver un resultado desde la función?. Porque no siempre queremos solamente que muestre algo sino, por ahí, que devuelva algo. Por ejemplo, que devuelva la cantidad de veces que yo quiera la palabra \emph{beeeeeee}. Para hacer esto la función dejaría de imprimir y nada más pasaría a devolver un valor, se escribe así:
+
+\begin{lstlisting}
+def deci_bee cantidad_de_veces
+  ' beeeeeeeeeee...' * cantidad_de_veces
+end
+
+puts 'La ovejita Pancha dice: ' 
+puts deci_bee 5
+puts 'La ovejita Juliana dice: ' + deci_bee 7
+puts 'La ovejita Dolly dice: ' 
+p deci_bee(14)
+\end{lstlisting}
+
+Hasta acá vendría a ser lo que estuvimos aprendiendo. Al poner \emph{puts deci\_bee 5}, estamos diciendo que llame a la función \emph{deci\_bee} con el parámetro 5 y que imprima el valor que devuelve la misma.\\
+
+Sigamos:
+\begin{lstlisting}
+puts 'La ovejita Juliana dice: ' + deci_bee 7
+\end{lstlisting}
+
+Esto es lo mismo solo que concatenando las dos partes: como yo sé que devuelve una palabra, puedo hacerlo así. Al final viene:
+
+\begin{lstlisting}
+p deci_bee (1)
+\end{lstlisting}
+
+En donde estamos diciendo que imprima el valor que devuelve la función \emph{deci\_bee} pasándole por parámetro el valor 1. Sin embargo, está escrito diferente a como lo venimos haciendo hasta ahora: escribir \emph{p} solo es lo mismo que escribir \emph{puts}, y otra forma más prolija de llamar parámetros es pasándolos entre paréntesis.
+
+\section{Ejercicios}
+Ahora hay que combinar un poco todo lo que aprendimos y una gran idea podría ser mezclar lo que sabemos de las listas y lo que acabamos de aprender de las funciones. Vamos con dos ejemplos muy famosos y fáciles:
+
+\ejercicio{Funciones y Listas}{
+\begin{enumerate}
+  \item Hacer un ejercicio que encuentre el número mayor de una lista que se escriba por pantalla
+  \item Marta, la profesora diabólica, tiene la lista de sus alumnos, con las notas del primer, segundo y tercer trimestre, quiere un programa que le diga quienes deben ir a recuperatorio en diciembre y quienes aprobaron la materia.
+\end{enumerate}
+}
