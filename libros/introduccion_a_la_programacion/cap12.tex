@@ -1,1 +1,69 @@
 \chapter{12va semana - Jugando con las funciones de otro}
+\nota{Introducción}{Estamos terminando nuestro curso de introducción a la programación}
+
+\nota{Objetivo}{En la clase de hoy vamos a ver cómo hacer para utilizar las funciones hechas por otros compañeros o por los profes, esto es escencial cuando se programa en equipos de trabajo y es justamente una de las grandes ventajas de las funciones}
+
+\nota{Cómo lo vamos a hacer}{Lo vamos a hacer con unas funciones para jugar que nos permiten armar un juego de una manera muy sencilla, demostrando lo que le decíamos en clase de que programar es siempre igual, pero que con el tiempo uno va usando funciones más divertidas}
+	
+En esta semana vamos a aprender a jugar con funciones hechas por otro. Para que sea más divertido usamos funciones con imágenes que agrupamos todas en un archivo. Si las funciones de otro están en un archivo que se llama, por ejemplo, \emph{nahual.rb} entonces lo único que tenemos que poner es:
+\begin{lstlisting}
+require 'nahual'
+\end{lstlisting}
+
+Para crear una pantalla de 640x480 pixeles (vacía, por ahora) tenemos que hacer lo siguiente:
+\begin{lstlisting}
+pantalla = crearPantalla(640,480)
+while true 
+  evento = obtenerEvento()
+  if ( evento == 0 )
+    cerrarPantalla()
+  end 
+  limpiarPantalla(pantalla)
+  redibujarPantalla(pantalla)
+end
+\end{lstlisting}
+
+El ciclo con el while true es el lazo del juego o \emph{game loop}. A cada ratito se van a volver a ejecutar las funciones de redibujar y así vamos a lograr el efecto película y darle movimiento a nuestras imágenes.
+
+\section{Los sprites}
+Un sprite es una imagen que queremos poner en la pantalla y moverla. Puede representar jugadores de fútbol en un jueguito, el fondo de una animación, etc. Para crear un sprite tenemos que hacer:
+\begin{lstlisting}
+sprite = crearSprite("bernard2.png")
+\end{lstlisting}
+
+Y después, en el \emph{game loop}, tenemos que dibujarlo distinto. Por ejemplo si aprietan la letra 'h' hacemos que se mueva por la pantalla. Fíjense, que “bernard2.png” es el nombre del archivo con la imagen que queremos usar. ¡Podemos hacer la imagen que nosotros queramos usando el paint!
+\begin{lstlisting}
+if ( evento == 'h' )
+  sprite.moverA(10,10)
+  if ( sprite.y < 200 )
+    sprite.mover(0,10)
+  else
+    sprite.mover(10,0)
+  end
+  if ( sprite.x > 600 )
+    sprite.moverA(50,50)
+  end
+end
+\end{lstlisting}
+
+Para ver si apretaron una tecla o  si hicieron click en el mouse tenemos la función obtener evento, la podemos usar de la siguiente manera:
+\begin{lstlisting}
+evento = obtenerEvento()
+if ( evento = 'a' )
+  puts 'apretaron la a'
+end
+\end{lstlisting}
+Si el evento es 0 (el numero 0) entonces hay que salir y si es 1 es que fue un click del mouse.
+
+\section{Ejercicios}
+Con estas sencillas funciones podemos hacer nuestro juego de jugar a la mancha.
+\ejercicio{Jugando a la mancha}{
+\begin{enumerate}
+  \item Creá un juego vacío que sólo muestre la pantalla vacía.
+  \item Creá 2 sprites, uno con una imagen y otro con otra, y ubícalos en uno en la posición 10,10 y el otro en la 600,400.
+  \item Hacé 4 funciones que se llamen \emph{mover\_arriba}, \emph{mover\_abajo}, \emph{mover\_izquierda}, \emph{mover\_derecha} que muevan 5 pixeles al sprite.
+  \item Elegì 4 teclas (una para cada dirección) y hacé una función que, a partir del evento, tome una decisión con el sprite.
+  \item Hacé otra función que se llame \emph{mancha?} para ver si un sprite tocó al otro.
+  \item ¡¡¡Jugá!!!
+\end{enumerate}
+}
