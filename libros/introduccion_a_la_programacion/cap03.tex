@@ -37,7 +37,7 @@ En resumen, la variable se llama “mi\_cadena” y el valor es “…hola, como
 \hline
 \rowcolor[gray]{0.9}Nombre & Valor \\
 \hline
-mi\_cadena & '…hola, como andas…' \\
+mi\_cadena & '...hola, como andas...' \\
 \hline
 \end{tabular}
 \end{center}
@@ -52,9 +52,9 @@ puts 'Yo me llamo ' + mi_nombre + '  y mi apellido es ' + mi_apellido
 
 Si ejecutamos esto el programa mostraría por pantalla lo siguiente:
 
-\begin{lstlisting}
+\begin{console-output}
 Yo me llamo Charly y mi apellido es Lizarralde
-\end{lstlisting}
+\end{console-output}
 
 Otra cosa que podemos hacer es asignar a una variable un valor y después ¡cambiárselo! Por ej: 
 
@@ -91,13 +91,13 @@ puts var2
 
 Esto imprimiría... 
 
-\begin{lstlisting}
+\begin{console-output}
 8
 8
 
 ocho
 8
-\end{lstlisting}
+\end{console-output}
 
 En la segunda línea, tratamos de apuntar var2 a var1 pero en realidad apunto al 8 que era el valor al cual apuntaba var1. Después cambiamos var1 para que apunte al valor 'ocho'. Cuando imprimimos ambos valores con \emph{puts}, ¡vemos que var2 no cambio!. Lo que pasa, es que var2 nunca apuntó a var1 sino al valor que apuntaba var1 en el momento de la asignación que era 8. Por eso var2 se quedo apuntando al 8. Esto es medio difícil de entender así como así, por eso vemos en el siguiente gráfico como es la cosa.
 
