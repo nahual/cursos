@@ -118,7 +118,22 @@ while (salir == false)
   $fondo.dibujar($pantalla)
   
   $font.textout($pantalla,"Bienvenido!!! "  ,300,200)
-  $font.textout($pantalla,"1. Piña "  ,300,240)
+  $font.textout($pantalla,"JUGADOR 1"  ,200,215)
+  $font.textout($pantalla,"D: Derecha"  ,200,230)
+  $font.textout($pantalla,"A. Izquierda "  ,200,245)
+  $font.textout($pantalla,"X: Patada Voladora "  ,200,260)
+  $font.textout($pantalla,"V: Piña "  ,200,275)
+  $font.textout($pantalla,"S: Esquivo"  ,200,290)
+  $font.textout($pantalla,"Q: Salir"  ,200,305)
+
+  $font.textout($pantalla,"JUGADOR 2"  ,400,215)
+  $font.textout($pantalla,"L: Derecha"  ,400,230)
+  $font.textout($pantalla,"J. Izquierda "  ,400,245)
+  $font.textout($pantalla,"N: Patada Voladora "  ,400,260)
+  $font.textout($pantalla,"M. Piña "  ,400,275)
+  $font.textout($pantalla,"K: Esquivo"  ,400,290)
+  $font.textout($pantalla,"Q: Salir"  ,400,305)
+
   
   $jugador1.mover
   $jugador2.mover
