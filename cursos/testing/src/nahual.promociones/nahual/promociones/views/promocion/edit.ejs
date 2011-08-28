@@ -1,0 +1,14 @@
+<h2>Nueva Promoción</h2>
+<form>
+	<% for(var attr in Nahual.Promociones.Models.Promocion.attributes){ %>
+		<% if(attr == 'id') continue;%>
+		<div>
+			<div>
+				<label for="<%= attr %>"><%= attr %> :</label>
+				<input type="text" value="<%= this[attr] %>" id="<%= attr %>" name="<%= attr %>"/>
+			</div>
+		</div>
+	<%}%>
+	<input type='submit' class="save" value='Grabar'/>
+	<input type="button" class="cancel" value="Cancelar" />
+</form>

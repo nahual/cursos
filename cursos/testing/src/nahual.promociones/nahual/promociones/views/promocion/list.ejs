@@ -1,0 +1,5 @@
+<%for(var i = 0; i < promocions.length ; i++){%>
+	<tr <%= promocions[i]%>>
+		<%= $.View('//nahual/promociones/views/promocion/show',promocions[i])%>
+	</tr>
+<%}%>
