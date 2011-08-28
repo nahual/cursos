@@ -9,6 +9,16 @@
 $.Model.extend('Nahual.Promociones.Models.Promocion',
 /* @Static */
 {
+	editableAttributes: [
+		{
+			Name: 'titulo',
+			Description: 'Título'
+		},
+		{
+			Name: 'descripcion',
+			Description: 'Descripción'
+		}
+	],
 	promociones: [],
 	lastId: 0,
 	
@@ -63,7 +73,16 @@ $.Model.extend('Nahual.Promociones.Models.Promocion',
 			dataType: 'json',
 			success: success,
 			error: error,
-			fixture: "-restDestroy" // uses $.fixture.restDestroy for response.
+			fixture:  function( settings, callbackType ) {
+				for(var index = 0; index < Nahual.Promociones.Models.Promocion.promociones.length; ++index) {
+					if (Nahual.Promociones.Models.Promocion.promociones[index].id == id) {
+						Nahual.Promociones.Models.Promocion.promociones.splice(index, 1);
+						return [Nahual.Promociones.Models.Promocion.promociones, 'success'];
+					}
+				}
+				return [Nahual.Promociones.Models.Promocion.promociones, 'error'];
+			} 
+			//"-restDestroy" // uses $.fixture.restDestroy for response.
 		});
 	},
 	/**
@@ -80,8 +99,10 @@ $.Model.extend('Nahual.Promociones.Models.Promocion',
 			success: success,
 			error: error,
 			data: attrs,
-			fixture:  function( settings, callbackType ) {
-				Nahual.Promociones.Models.Promocion.promociones.push(new Nahual.Promociones.Models.Promocion());
+			fixture: function( settings, callbackType ) {
+				var data = attrs;
+				data.id = ++Nahual.Promociones.Models.Promocion.lastId;
+				Nahual.Promociones.Models.Promocion.promociones.push(new Nahual.Promociones.Models.Promocion(data));
 				return [Nahual.Promociones.Models.Promocion.promociones, 'success'];
 			} 
 			//"-restCreate" //uses $.fixture.restCreate for response.
@@ -90,6 +111,6 @@ $.Model.extend('Nahual.Promociones.Models.Promocion',
 },
 /* @Prototype */
 {
-	Titulo: "",
-	Descripcion: ""
+	titulo: "",
+	descripcion: ""
 });

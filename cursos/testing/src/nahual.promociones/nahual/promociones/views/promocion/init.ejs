@@ -3,14 +3,15 @@
 <table class="list" cellspacing='0px'>
 	<thead>
 	<tr>
-		<% for(var attr in Nahual.Promociones.Models.Promocion.attributes){%>
-			<% if(attr == 'id') continue;%>
-			<th><%= attr%> </th>	 
+		<% for(var i = 0; i < Nahual.Promociones.Models.Promocion.editableAttributes.length; ++i){ 
+			var attr = Nahual.Promociones.Models.Promocion.editableAttributes[i];
+		%>
+			<th><%= attr.Description%> </th>	 
 		<%}%>
 		<th>Options</th>
 	</tr>
 	</thead>
 	<tbody>
-		<%= $.View('//nahual/promociones/views/promocion/list',{promocions: promocions})%>
+		<%= $.View('//nahual/promociones/views/promocion/list',{promociones: promociones})%>
 	</tbody>
 </table>

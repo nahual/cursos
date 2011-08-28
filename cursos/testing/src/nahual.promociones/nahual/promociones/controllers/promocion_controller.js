@@ -28,8 +28,8 @@ $.Controller.extend('Nahual.Promociones.Controllers.Promocion',
  * Displays a list of promocions and the submit form.
  * @param {Array} promocions An array of Nahual.Promociones.Models.Promocion objects.
  */
- list: function( promocions ){
-	$('#promocion').html(this.view('init', {promocions:promocions} ));
+ list: function( promociones ){
+	$('#promocion').html(this.view('init', {promociones:promociones} ));
  },
  /**
  * Responds to the create form being submitted by creating a new Nahual.Promociones.Models.Promocion.

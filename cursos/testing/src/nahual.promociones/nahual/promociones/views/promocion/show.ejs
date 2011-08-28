@@ -1,7 +1,8 @@
-<%for(var attribute in this.Class.attributes){%>
-	<%if(attribute == 'id') continue;%>
-	<td class='<%= attribute%>'>
-		<%=this[attribute]%>
+<% for(var i = 0; i < Nahual.Promociones.Models.Promocion.editableAttributes.length; ++i){ 
+	var editableAttr = Nahual.Promociones.Models.Promocion.editableAttributes[i];
+%>
+	<td class='<%= editableAttr.Name%>'>
+		<%=this[editableAttr.Name]%>
 	</td>
 <%}%>
 <td>
