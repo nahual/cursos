@@ -38,7 +38,11 @@ $.Controller.extend('Nahual.Promociones.Controllers.Promocion',
  */
 'form submit': function( el, ev ){
 	ev.preventDefault();
-	new Nahual.Promociones.Models.Promocion(el.formParams()).save();
+	var promocion = el.closest('.promocion').model();
+	if (promocion)
+		promocion.update(el.formParams());
+	else
+		new Nahual.Promociones.Models.Promocion(el.formParams()).save();
 },
  /**
  * Creates and places the edit interface.

@@ -34,7 +34,7 @@ $.Model.extend('Nahual.Promociones.Models.Promocion',
 			type: 'get',
 			dataType: 'json',
 			data: params,
-			success: this.callback(['wrapMany',success]),
+			success: this.callback(success),
 			error: error,
 			fixture: function( settings, callbackType ) {
 				return [Nahual.Promociones.Models.Promocion.promociones, 'success'];

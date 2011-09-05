@@ -22,6 +22,13 @@ h1
 {
 	padding: 0 25px 0 0;
 	display:inline-block;
+	color: #ffffff;
+}
+.menu>li>a
+{
+	padding: 0 25px 0 0;
+	display:inline-block;
+	color: #ffffff;
 }
 .footer
 {
@@ -32,6 +39,10 @@ h1
 	height:15px;
 	background-color:#007fff;
 	border-radius:7px;
+}
+.footer>a
+{
+	color:#ffffff;
 }
 .add {
 	margin: 20px;
