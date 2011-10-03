@@ -5,10 +5,10 @@ body {
 td {padding: 3px;}
 h1 
 { 
-	height:45px;
 	background-color:#007fff;
+	color: white;
 	margin: 1px;
-	padding: 5px;
+	padding: 10px 5px 10px 5px;
 	border-radius: 7px;
 }
 .menu 
@@ -32,11 +32,12 @@ h1
 }
 .footer
 {
+	vertical-align:middle;
+	padding: 5px;
 	margin-top:10px;
 	text-align:center;
 	font-size:8pt;
 	color:#ffffff;
-	height:15px;
 	background-color:#007fff;
 	border-radius:7px;
 }
