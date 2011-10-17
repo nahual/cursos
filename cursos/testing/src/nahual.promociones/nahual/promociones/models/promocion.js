@@ -19,7 +19,6 @@ $.Model.extend('Nahual.Promociones.Models.Promocion',
 			Description: 'Descripción'
 		}
 	],
-	promociones: [],
 	lastId: 0,
 	
 	/**
@@ -37,9 +36,13 @@ $.Model.extend('Nahual.Promociones.Models.Promocion',
 			success: this.callback(success),
 			error: error,
 			fixture: function( settings, callbackType ) {
-				return [Nahual.Promociones.Models.Promocion.promociones, 'success'];
-			}
-			//"//nahual/promociones/fixtures/promocions.json.get" //calculates the fixture path from the url and type.
+				var modelObjects = [];
+				var promociones = $.nahual.data.promociones.getAll();
+				$.each(promociones, function (index, value) {
+					modelObjects.push(new Nahual.Promociones.Models.Promocion(value));
+				});
+				return [modelObjects, 'success'];
+			} 
 		});
 	},
 	/**
@@ -57,7 +60,11 @@ $.Model.extend('Nahual.Promociones.Models.Promocion',
 			data: attrs,
 			success: success,
 			error: error,
-			fixture: "-restUpdate" //uses $.fixture.restUpdate for response.
+			fixture:  function( settings, callbackType ) {
+				$.nahual.data.promociones.set(id, attrs);
+				var promociones = $.nahual.data.promociones.getAll();
+				return 'success';
+			} 
 		});
 	},
 	/**
@@ -74,15 +81,9 @@ $.Model.extend('Nahual.Promociones.Models.Promocion',
 			success: success,
 			error: error,
 			fixture:  function( settings, callbackType ) {
-				for(var index = 0; index < Nahual.Promociones.Models.Promocion.promociones.length; ++index) {
-					if (Nahual.Promociones.Models.Promocion.promociones[index].id == id) {
-						Nahual.Promociones.Models.Promocion.promociones.splice(index, 1);
-						return [Nahual.Promociones.Models.Promocion.promociones, 'success'];
-					}
-				}
-				return [Nahual.Promociones.Models.Promocion.promociones, 'error'];
+				var promocion = $.nahual.data.promociones.del(id);
+				return (promocion ? 'sucess' : 'error');
 			} 
-			//"-restDestroy" // uses $.fixture.restDestroy for response.
 		});
 	},
 	/**
@@ -100,12 +101,11 @@ $.Model.extend('Nahual.Promociones.Models.Promocion',
 			error: error,
 			data: attrs,
 			fixture: function( settings, callbackType ) {
-				var data = attrs;
-				data.id = ++Nahual.Promociones.Models.Promocion.lastId;
-				Nahual.Promociones.Models.Promocion.promociones.push(new Nahual.Promociones.Models.Promocion(data));
-				return [Nahual.Promociones.Models.Promocion.promociones, 'success'];
+				var id = $.nahual.data.promociones.getLatestId() + 1;
+				$.nahual.data.promociones.set(id, attrs);
+				var promociones = $.nahual.data.promociones.getAll();
+				return 'success';
 			} 
-			//"-restCreate" //uses $.fixture.restCreate for response.
 		});
 	}
 },

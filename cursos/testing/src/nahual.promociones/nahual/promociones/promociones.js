@@ -9,7 +9,9 @@ steal.plugins(
 	
 	.css('promociones')	// loads styles
 
-	.resources()					// 3rd party script's (like jQueryUI), in resources folder
+	.resources(
+		'jquery.nahual.js'
+	)					// 3rd party script's (like jQueryUI), in resources folder
 
 	.models('promocion')						// loads files in models folder 
 
