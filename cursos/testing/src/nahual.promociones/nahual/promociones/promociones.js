@@ -15,4 +15,9 @@ steal.plugins(
 
 	.controllers('promocion')					// loads files in controllers folder
 
-	.views();						// adds views to be added to build
+	.views(
+		'promocion/edit.ejs',
+		'promocion/init.ejs',
+		'promocion/list.ejs',
+		'promocion/show.ejs'
+	);						// adds views to be added to build
