@@ -1,0 +1,16 @@
+Proyecto Nahual - Nahual Promociones
+
+Versión 1
+---------
+
+Funcionalidades incluidas:
+ - ABM de promociones
+ - Almacenamiento de las promociones en memoria
+ - Sólo dos campos en la entidad Promocion: Titulo+Descripcion
+
+Errores conocidos:
+ - Los links en la barra de navegación no poseen un destino
+ - Los estilos no se respetan a lo largo de todo el sistema
+ 
+
+
