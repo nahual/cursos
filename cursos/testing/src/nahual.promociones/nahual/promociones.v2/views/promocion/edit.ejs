@@ -1,0 +1,15 @@
+<h2>Nueva Promoción</h2>
+<form <%= this%>>
+	<% for(var i = 0; i < Nahual.Promociones.Models.Promocion.editableAttributes.length; ++i){ 
+		var editableAttr = Nahual.Promociones.Models.Promocion.editableAttributes[i];
+	%>
+		<div>
+			<div>
+				<label for="<%= editableAttr.Name %>"><%= editableAttr.Description %> :</label>
+				<input type="text" value="<%= this[editableAttr.Name] %>" id="<%= editableAttr.Name %>" name="<%= editableAttr.Name %>"/>
+			</div>
+		</div>
+	<%}%>
+	<input type='submit' class="save" value='Grabar'/>
+	<input type="button" class="cancel" value="Cancelar" />
+</form>
