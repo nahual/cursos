@@ -1,6 +1,39 @@
 //steal/js nahual/promociones/scripts/compress.js
 
+var inputDir = 'nahual/promociones';
+var outputDir = 'nahual/out/promociones';
+var resourcesToCopy = ['resources', 'resources/external'];
+
+var stealDir = './steal';
+var ignoreResources = ['.svn'];
+
 load("steal/rhino/steal.js");
 steal.plugins('steal/build','steal/build/scripts','steal/build/styles',function(){
-	steal.build('nahual/promociones/scripts/build.html',{to: 'nahual/promociones'});
+	steal.build(inputDir + '/scripts/build.html',{to: inputDir});
+
+	print('Creating output at:' + outputDir);
+	new steal.File(outputDir).removeDir();
+	new steal.File(outputDir).mkdir();
+
+	print('Copying HTML, JS and CSS files in output...');
+	new steal.File(inputDir + '/index.production.html').copyTo(outputDir + '/index.html');
+	new steal.File(inputDir + '/production.js').copyTo(outputDir + '/production.js').remove();
+	new steal.File(inputDir + '/production.css').copyTo(outputDir + '/production.css').remove();
+	
+	print('Copying steal.production.js from: ' + stealDir);
+	new steal.File(stealDir + '/steal.production.js').copyTo(outputDir + '/steal.production.js');
+
+	print('Copying resources...');
+	for(var i = 0; i < resourcesToCopy.length; ++i) {
+		var resourceOut = outputDir + '/' + resourcesToCopy[i];
+		new steal.File(resourceOut).mkdirs();
+	}
+	for(var i = 0; i < resourcesToCopy.length; ++i) {
+		var resourceIn = inputDir + '/' + resourcesToCopy[i];
+		var resourceOut = outputDir + '/' + resourcesToCopy[i];
+
+		print('Copying ' + resourceIn); 
+		new steal.File(resourceIn).copyTo(resourceOut, ignoreResources);
+	}
+
 });
