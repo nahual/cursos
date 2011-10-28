@@ -1,0 +1,16 @@
+Proyecto Nahual - Nahual Promociones
+
+Versión 2
+---------
+
+Funcionalidades incluidas:
+ - ABM de promociones
+ - Persistencia de las promociones usando localStorage (requiere Firefox 8+ o Google Chrome)
+ - Sólo dos campos en la entidad Promocion: Titulo+Descripcion
+
+Errores conocidos:
+ - Los links en la barra de navegación no poseen un destino
+ - Los estilos no se respetan a lo largo de todo el sistema
+ 
+
+
