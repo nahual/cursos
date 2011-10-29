@@ -12,7 +12,21 @@ $.Model.extend('Nahual.Promociones.Models.Promocion',
 	editableAttributes: [
 		{
 			Name: 'titulo',
-			Description: 'Título'
+			Description: 'Título',
+			ShowInList: true
+		},
+		{
+			Name: 'fechaInicio',
+			Description: 'Fecha Inicio',
+			ShowInList: true,
+			Type: "date"
+		},
+		{
+			Name: 'fechaFin',
+			Description: 'Fecha Fin', 
+			ShowInList: true,
+			Type: "date"
+			
 		},
 		{
 			Name: 'descripcion',

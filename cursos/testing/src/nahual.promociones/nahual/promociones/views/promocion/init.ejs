@@ -5,9 +5,12 @@
 	<tr>
 		<% for(var i = 0; i < Nahual.Promociones.Models.Promocion.editableAttributes.length; ++i){ 
 			var attr = Nahual.Promociones.Models.Promocion.editableAttributes[i];
+			if (attr.ShowInList) {
 		%>
-			<th><%= attr.Description%> </th>	 
-		<%}%>
+				<th><%= attr.Description%> </th>	 
+		<%
+			}
+		}%>
 		<th>Options</th>
 	</tr>
 	</thead>
