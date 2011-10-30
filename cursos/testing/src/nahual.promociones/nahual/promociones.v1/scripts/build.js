@@ -2,7 +2,7 @@
 
 var inputDir = 'nahual/promociones.v1';
 var outputDir = 'nahual/out/promociones.v1';
-var resourcesToCopy = ['resources'];
+var resourcesToCopy = [ ];
 
 var stealDir = './steal';
 var ignoreResources = ['.svn'];
@@ -13,7 +13,7 @@ steal.plugins('steal/build','steal/build/scripts','steal/build/styles',function(
 
 	print('Creating output at:' + outputDir);
 	new steal.File(outputDir).removeDir();
-	new steal.File(outputDir).mkdir();
+	new steal.File(outputDir).mkdirs();
 
 	print('Copying HTML, JS and CSS files in output...');
 	new steal.File(inputDir + '/index.production.html').copyTo(outputDir + '/index.html');
@@ -25,14 +25,11 @@ steal.plugins('steal/build','steal/build/scripts','steal/build/styles',function(
 
 	print('Copying resources...');
 	for(var i = 0; i < resourcesToCopy.length; ++i) {
-		var resourceOut = outputDir + '/' + resourcesToCopy[i];
-		new steal.File(resourceOut).mkdirs();
-	}
-	for(var i = 0; i < resourcesToCopy.length; ++i) {
 		var resourceIn = inputDir + '/' + resourcesToCopy[i];
 		var resourceOut = outputDir + '/' + resourcesToCopy[i];
 
-		print('Copying ' + resourceIn); 
+		print('Copying ' + resourceIn + ' to ' + resourceOut); 
+		new steal.File(resourceOut).mkdirs();
 		new steal.File(resourceIn).copyTo(resourceOut, ignoreResources);
 	}
 
