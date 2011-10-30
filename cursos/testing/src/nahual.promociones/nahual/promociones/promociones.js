@@ -17,15 +17,19 @@ steal.plugins(
 		'external/jquery.validate.js'
 	)	// 3rd party script's (like jQueryUI), in resources folder
 
-	.models('promocion')		// loads files in models folder 
+	.models('promocion', 'usuario')		// loads files in models folder 
 
-	.controllers('promocion')	// loads files in controllers folder
+	.controllers('promocion', 'usuario')	// loads files in controllers folder
 
 	.views(
 		'promocion/edit.ejs',
 		'promocion/init.ejs',
 		'promocion/list.ejs',
-		'promocion/show.ejs'
+		'promocion/show.ejs',
+		'usuario/edit.ejs',
+		'usuario/init.ejs',
+		'usuario/list.ejs',
+		'usuario/show.ejs'
 	)
 	.then(function () {
 		$(document).ready(function () {
