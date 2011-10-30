@@ -49,7 +49,7 @@ $.Controller.extend('Nahual.Promociones.Controllers.Promocion',
  * @param {jQuery} el The promocion's edit link element.
  */
 '.add click': function( el ){
-	$('#promocion').html(this.view('edit'));
+	this.edit(null);
 },
  /**
  * Creates and places the edit interface.
@@ -57,7 +57,7 @@ $.Controller.extend('Nahual.Promociones.Controllers.Promocion',
  */
 '.edit click': function( el ){
 	var promocion = el.closest('.promocion').model();
-	$('#promocion').html(this.view('edit', promocion));
+	this.edit(promocion);
 },
  /**
  * Removes the edit interface.
@@ -71,6 +71,15 @@ $.Controller.extend('Nahual.Promociones.Controllers.Promocion',
  */
 show: function( promocion ){
 	promocion.elements().html(this.view('show',promocion));
+},
+ /**
+ * Allow editing a promocion's element.
+ */
+edit: function( promocion ){
+	$('#promocion').html(this.view('edit', promocion));
+	$('#editForm').validate();
+	$('#fechaInicio').datepicker();
+	$('#fechaFin').datepicker();
 },
  /**
  *	 Handle's clicking on a promocion's destroy link.

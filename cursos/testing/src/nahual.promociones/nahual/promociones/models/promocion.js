@@ -13,24 +13,29 @@ $.Model.extend('Nahual.Promociones.Models.Promocion',
 		{
 			Name: 'titulo',
 			Description: 'Título',
-			ShowInList: true
+			ShowInList: true,
+			Required: true,
+			MaxLength: 50
 		},
 		{
 			Name: 'fechaInicio',
 			Description: 'Fecha Inicio',
 			ShowInList: true,
-			Type: "date"
+			Type: 'date',
+			Required: true
 		},
 		{
 			Name: 'fechaFin',
 			Description: 'Fecha Fin', 
 			ShowInList: true,
-			Type: "date"
+			Type: 'date'
 			
 		},
 		{
 			Name: 'descripcion',
-			Description: 'Descripción'
+			Description: 'Descripción',
+			Type: 'textarea',
+			MaxLength: 500
 		}
 	],
 	lastId: 0,

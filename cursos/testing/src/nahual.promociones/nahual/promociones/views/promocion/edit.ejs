@@ -1,27 +1,39 @@
 <h2>Nueva Promoción</h2>
-<form <%= this%> >
-	<div style="padding-left: 30px;">
-	<% for(var i = 0; i < Nahual.Promociones.Models.Promocion.editableAttributes.length; ++i){ 
-		var editableAttr = Nahual.Promociones.Models.Promocion.editableAttributes[i];
-	%>
-		<div style="padding-top: 10px">
-			<div>
-				<span style="width:200px" ><label for="<%= editableAttr.Name %>" ><%= editableAttr.Description %></label></span>
-				<input type="text" value="<%= this[editableAttr.Name] %>" id="<%= editableAttr.Name %>" name="<%= editableAttr.Name %>"/>
-					<script>
-					$(document).ready(function(){
-						$('<%= editableAttr.Name %>').datepicker({
-							inline: true
-						});
-					
-					});
-					</script>
+<form <%= this%> id="editForm">
+	<fieldset style=" margin-top:50px;margin-bottom:50px" >
+		<legend>Ingrese los datos de la promoción</legend>
+		<p style="padding-left: 30px;">
+		<% for(var i = 0; i < Nahual.Promociones.Models.Promocion.editableAttributes.length; ++i){ 
+			var editableAttr = Nahual.Promociones.Models.Promocion.editableAttributes[i];
+			var entryClass = editableAttr.Required ? 'required' : '';
+			var maxLength = editableAttr.MaxLength ? editableAttr.MaxLength.toString() : '';
+		%>
+			<div style="padding-top: 10px">
+				<div>
+					<div style="vertical-align:top;display:inline-block;width:120px" >
+						<label for="<%= editableAttr.Name %>" ><%= editableAttr.Description %></label>
+					</div>
+					<% if (editableAttr.Type == 'textarea') { %>
+						<textarea rows="4" cols="50" id="<%= editableAttr.Name %>" name="<%= editableAttr.Name %>"
+						class="<%= entryClass %>"
+						maxLength="<%= maxLength %>"
+						><%= this[editableAttr.Name] %></textarea>
+					<% } else { %>
+						<input type="text" id="<%= editableAttr.Name %>" name="<%= editableAttr.Name %>"
+						class="<%= entryClass %>"
+						maxLength="<%= maxLength %>"
+						value="<%= this[editableAttr.Name] %>" />
+					<% } %>
+					<% if (editableAttr.Required) { %>
+						*
+					<% } %>
+				</div>
 			</div>
-		</div>
-	<%}%>
-	</div>
-	<div style="padding-left: 100px; padding-top:50px;padding-bottom:50px ">
-		<input type='submit' class="save" value='Grabar'/>
-		<input type="button" class="cancel" value="Cancelar" />
-	</div>
+		<%}%>
+		</p>
+		<p style="padding-left: 100px;">
+			<input type='submit' class="save" value='Grabar'/>
+			<input type="button" class="cancel" value="Cancelar" />
+		</p>
+	</fieldset>
 </form>

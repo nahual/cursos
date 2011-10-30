@@ -9,20 +9,27 @@ steal.plugins(
 	
 	.css(
 		'promociones', 
-		'resources/external/css/redmond/jquery-ui-1.8.16.custom'
+		'resources/css/jquery-ui-1.8.16.custom'
 	)	// loads styles
 	.resources(
 		'jquery.nahual.js',
-		'external/jquery-ui-1.8.16.custom.min.js'
-	)					// 3rd party script's (like jQueryUI), in resources folder
+		'external/jquery-ui-1.8.16.custom.min.js',
+		'external/jquery.validate.js'
+	)	// 3rd party script's (like jQueryUI), in resources folder
 
-	.models('promocion')						// loads files in models folder 
+	.models('promocion')		// loads files in models folder 
 
-	.controllers('promocion')					// loads files in controllers folder
+	.controllers('promocion')	// loads files in controllers folder
 
 	.views(
 		'promocion/edit.ejs',
 		'promocion/init.ejs',
 		'promocion/list.ejs',
 		'promocion/show.ejs'
+	)
+	.then(function () {
+		$(document).ready(function () {
+			$('#tabs').tabs();
+		});
+	}
 	);						// adds views to be added to build
