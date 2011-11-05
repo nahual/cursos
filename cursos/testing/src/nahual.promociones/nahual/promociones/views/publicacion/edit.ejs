@@ -1,10 +1,10 @@
-<h2>Nueva Promoción</h2>
+﻿<h2>Nueva Publicación</h2>
 <form <%= this%> id="editForm">
 	<fieldset style=" margin-top:50px;margin-bottom:50px" >
-		<legend>Ingrese los datos de la promoción</legend>
+		<legend>Ingrese los datos de la publicación</legend>
 		<p style="padding-left: 30px;">
-		<% for(var i = 0; i < Nahual.Promociones.Models.Promocion.editableAttributes.length; ++i){ 
-			var editableAttr = Nahual.Promociones.Models.Promocion.editableAttributes[i];
+		<% for(var i = 0; i < Nahual.Promociones.Models.Publicacion.editableAttributes.length; ++i){ 
+			var editableAttr = Nahual.Promociones.Models.Publicacion.editableAttributes[i];
 			var entryClass = editableAttr.Required ? 'required' : '';
 			var maxLength = editableAttr.MaxLength ? editableAttr.MaxLength.toString() : '';
 		%>

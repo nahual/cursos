@@ -32,6 +32,21 @@ $.Model.extend('Nahual.Promociones.Models.Promocion',
 			
 		},
 		{
+			Name: 'publicacion',
+			Description: 'Publicación', 
+			ShowInList: true,
+			Type: 'select',
+			TypeValues: function () {
+				var publicaciones = $.nahual.data.publicaciones.getAll();
+				var values = [];
+				for(var i = 0; i < publicaciones.length; ++i) {
+					values.push(publicaciones[i].nombre);
+				}
+				return values;
+			},
+			Required: true
+		},
+		{
 			Name: 'descripcion',
 			Description: 'Descripción',
 			Type: 'textarea',

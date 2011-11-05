@@ -1,43 +1,71 @@
-/**
+﻿/**
  * @tag models, home
  * Wraps backend usuario services.  Enables 
- * [Nahual.Promociones.Models.Usuario.static.findAll retrieving],
- * [Nahual.Promociones.Models.Usuario.static.update updating],
- * [Nahual.Promociones.Models.Usuario.static.destroy destroying], and
- * [Nahual.Promociones.Models.Usuario.static.create creating] usuarios.
+ * [Nahual.Promociones.Models.Publicacion.static.findAll retrieving],
+ * [Nahual.Promociones.Models.Publicacion.static.update updating],
+ * [Nahual.Promociones.Models.Publicacion.static.destroy destroying], and
+ * [Nahual.Promociones.Models.Publicacion.static.create creating] publicaciones.
  */
-$.Model.extend('Nahual.Promociones.Models.Usuario',
+$.Model.extend('Nahual.Promociones.Models.Publicacion',
 /* @Static */
 {
 	editableAttributes: [
 		{
-			Name: 'cuenta',
-			Description: 'Cuenta',
+			Name: 'nombre',
+			Description: 'Nombre',
+			ShowInList: true,
+			Required: true,
+			MaxLength: 20
+		},
+		{
+			Name: 'contacto',
+			Description: 'Contacto',
 			ShowInList: true,
 			Required: true,
 			MaxLength: 50
 		},
 		{
-			Name: 'nombre',
-			Description: 'Nombre',
+			Name: 'telefono',
+			Description: 'Teléfono', 
+			Required: true,
+			MaxLength: 13,
+			Type: 'regex',
+			TypeRegex: '[\d\s-]*'
+		},
+		{
+			Name: 'mail',
+			Description: 'Mail',
 			ShowInList: true,
-			Required: true
+			Required: true,
+			MaxLength: 20,
+			Type: 'regex',
+			TypeRegex: '\w+@\w+\.\w+'
 		},
 		{
-			Name: 'apellido',
-			Description: 'Apellido', 
-			ShowInList: true
+			Name: 'fecuencia',
+			Description: 'Frecuencia',
+			Required: true,
+			Type: 'select',
+			TypeValues: ['Diario', 'Semanal', 'Quincenal', 'Mensual']
 		},
 		{
-			Name: 'password',
-			Description: 'Password',
-			MaxLength: 16
+			Name: 'tipoDeMedio',
+			Description: 'Tipo de Medio',
+			Required: true,
+			Type: 'select',
+			TypeValues: ['Revista', 'Diario', 'TV', 'Internet', 'Vía Pública']
+		},
+		{
+			Name: 'observaciones',
+			Description: 'Observaciones',
+			Type: 'textarea',
+			MaxLength: 500
 		}
 	],
 	lastId: 0,
 	
 	/**
- 	 * Retrieves usuarios data from your backend services.
+ 	 * Retrieves publicaciones data from your backend services.
  	 * @param {Object} params params that might refine your results.
  	 * @param {Function} success a callback function that returns wrapped usuario objects.
  	 * @param {Function} error a callback function for an error in the ajax request.
@@ -52,9 +80,9 @@ $.Model.extend('Nahual.Promociones.Models.Usuario',
 			error: error,
 			fixture: function( settings, callbackType ) {
 				var modelObjects = [];
-				var usuarios = $.nahual.data.usuarios.getAll();
-				$.each(usuarios, function (index, value) {
-					modelObjects.push(new Nahual.Promociones.Models.Usuario(value));
+				var publicaciones = $.nahual.data.publicaciones.getAll();
+				$.each(publicaciones, function (index, value) {
+					modelObjects.push(new Nahual.Promociones.Models.Publicacion(value));
 				});
 				return [modelObjects, 'success'];
 			} 
@@ -69,15 +97,15 @@ $.Model.extend('Nahual.Promociones.Models.Usuario',
      */
 	update: function( id, attrs, success, error ){
 		$.ajax({
-			url: '/usuarios/'+id,
+			url: '/publicaciones/'+id,
 			type: 'put',
 			dataType: 'json',
 			data: attrs,
 			success: success,
 			error: error,
 			fixture:  function( settings, callbackType ) {
-				$.nahual.data.usuarios.set(id, attrs);
-				var usuarios = $.nahual.data.usuarios.getAll();
+				$.nahual.data.publicaciones.set(id, attrs);
+				var publicaciones = $.nahual.data.publicaciones.getAll();
 				return 'success';
 			} 
 		});
@@ -90,13 +118,13 @@ $.Model.extend('Nahual.Promociones.Models.Usuario',
 	 */
 	destroy: function( id, success, error ){
 		$.ajax({
-			url: '/usuarios/'+id,
+			url: '/publicaciones/'+id,
 			type: 'delete',
 			dataType: 'json',
 			success: success,
 			error: error,
 			fixture:  function( settings, callbackType ) {
-				var usuario = $.nahual.data.usuarios.del(id);
+				var usuario = $.nahual.data.publicaciones.del(id);
 				return (usuario ? 'sucess' : 'error');
 			} 
 		});
@@ -109,16 +137,16 @@ $.Model.extend('Nahual.Promociones.Models.Usuario',
 	 */
 	create: function( attrs, success, error ){
 		$.ajax({
-			url: '/usuarios',
+			url: '/publicaciones',
 			type: 'post',
 			dataType: 'json',
 			success: success,
 			error: error,
 			data: attrs,
 			fixture: function( settings, callbackType ) {
-				var id = $.nahual.data.usuarios.getLatestId() + 1;
-				$.nahual.data.usuarios.set(id, attrs);
-				var usuarios = $.nahual.data.usuarios.getAll();
+				var id = $.nahual.data.publicaciones.getLatestId() + 1;
+				$.nahual.data.publicaciones.set(id, attrs);
+				var publicaciones = $.nahual.data.publicaciones.getAll();
 				return 'success';
 			} 
 		});
@@ -126,7 +154,6 @@ $.Model.extend('Nahual.Promociones.Models.Usuario',
 },
 /* @Prototype */
 {
-	nombreCompleto: function (){
-		return this.nombre + " " + this.apellido;
-	}
+	titulo: "",
+	descripcion: ""
 });

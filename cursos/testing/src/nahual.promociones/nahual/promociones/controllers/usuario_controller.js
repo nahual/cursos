@@ -76,15 +76,14 @@ show: function( usuario ){
 edit: function( usuario ){
 	$('#usuario').html(this.view('edit', usuario));
 	$('#editForm').validate();
-	$('#fechaInicio').datepicker();
-	$('#fechaFin').datepicker();
 },
  /**
  *	 Handle's clicking on a usuario's destroy link.
  */
 '.delete click': function( el ){
-	if(confirm("¿Está seguro que desea eliminar la promoción?")){
-		el.closest('.usuario').model().destroy();
+	var model = el.closest('.usuario').model();
+	if(confirm("¿Está seguro que desea eliminar '" + model.nombreCompleto() + "'?")){
+		model.destroy();
 	}
  },
 /**

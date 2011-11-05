@@ -17,15 +17,19 @@ steal.plugins(
 		'external/jquery.validate.js'
 	)	// 3rd party script's (like jQueryUI), in resources folder
 
-	.models('promocion', 'usuario')		// loads files in models folder 
+	.models('promocion', 'publicacion', 'usuario')		// loads files in models folder 
 
-	.controllers('base_controller', 'promocion', 'usuario')	// loads files in controllers folder
+	.controllers('base_controller', 'promocion', 'publicacion', 'usuario')	// loads files in controllers folder
 
 	.views(
 		'promocion/edit.ejs',
 		'promocion/init.ejs',
 		'promocion/list.ejs',
 		'promocion/show.ejs',
+		'publicacion/edit.ejs',
+		'publicacion/init.ejs',
+		'publicacion/list.ejs',
+		'publicacion/show.ejs',
 		'usuario/edit.ejs',
 		'usuario/init.ejs',
 		'usuario/list.ejs',
@@ -36,6 +40,7 @@ steal.plugins(
 			$('#tabs').tabs();
 			Nahual.Promociones.Controllers.BaseController.basePathVersionPostfix = '';
 			new Nahual.Promociones.Controllers.Promocion($('#promocion'));
+			new Nahual.Promociones.Controllers.Publicacion($('#publicacion'));
 			new Nahual.Promociones.Controllers.Usuario($('#usuario'));
 		});
 	}

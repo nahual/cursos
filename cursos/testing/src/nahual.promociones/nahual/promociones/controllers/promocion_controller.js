@@ -83,8 +83,9 @@ edit: function( promocion ){
  *	 Handle's clicking on a promocion's destroy link.
  */
 '.delete click': function( el ){
-	if(confirm("¿Está seguro que desea eliminar la promoción?")){
-		el.closest('.promocion').model().destroy();
+	var model = el.closest('.promocion').model();
+	if(confirm("¿Está seguro que desea eliminar '" + model.titulo + "'?")){
+		model.destroy();
 	}
  },
 /**

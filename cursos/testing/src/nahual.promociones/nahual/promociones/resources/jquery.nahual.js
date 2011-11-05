@@ -53,6 +53,7 @@ steal('external/amplify.store.min.js').then(function () {
 	var privateNS = {
 		data: {
 			promociones: new cache('nahual.promociones'),
+			publicaciones: new cache('nahual.publicaciones'),
 			usuarios: new cache('nahual.usuarios')
 		}
 	};
