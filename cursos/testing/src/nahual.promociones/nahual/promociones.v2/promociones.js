@@ -15,11 +15,16 @@ steal.plugins(
 
 	.models('promocion')						// loads files in models folder 
 
-	.controllers('promocion')					// loads files in controllers folder
+	.controllers('base_controller', 'promocion')					// loads files in controllers folder
 
 	.views(
 		'promocion/edit.ejs',
 		'promocion/init.ejs',
 		'promocion/list.ejs',
 		'promocion/show.ejs'
-	);						// adds views to be added to build
+	).then( function() {
+		jQuery(document).ready( function() {
+			Nahual.Promociones.Controllers.BaseController.basePathVersionPostfix = '.v2';
+			new Nahual.Promociones.Controllers.Promocion($('#promocion'));
+		});
+	});						// adds views to be added to build

@@ -1,5 +1,5 @@
 <%for(var i = 0; i < usuarios.length ; i++){%>
 	<tr <%= usuarios[i]%>>
-		<%= $.View('//nahual/promociones/views/usuario/show',usuarios[i])%>
+		<%= controller.view('show',usuarios[i])%>
 	</tr>
 <%}%>

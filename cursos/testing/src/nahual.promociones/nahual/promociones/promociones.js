@@ -19,7 +19,7 @@ steal.plugins(
 
 	.models('promocion', 'usuario')		// loads files in models folder 
 
-	.controllers('promocion', 'usuario')	// loads files in controllers folder
+	.controllers('base_controller', 'promocion', 'usuario')	// loads files in controllers folder
 
 	.views(
 		'promocion/edit.ejs',
@@ -34,6 +34,9 @@ steal.plugins(
 	.then(function () {
 		$(document).ready(function () {
 			$('#tabs').tabs();
+			Nahual.Promociones.Controllers.BaseController.basePathVersionPostfix = '';
+			new Nahual.Promociones.Controllers.Promocion($('#promocion'));
+			new Nahual.Promociones.Controllers.Usuario($('#usuario'));
 		});
 	}
 	);						// adds views to be added to build

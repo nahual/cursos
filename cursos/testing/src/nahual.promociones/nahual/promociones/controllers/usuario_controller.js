@@ -5,20 +5,18 @@
  * ["Nahual.Promociones.Controllers.Usuario.prototype.&#46;edit click" edit],
  * or ["Nahual.Promociones.Controllers.Usuario.prototype.&#46;destroy click" destroy] usuarios.
  */
-$.Controller.extend('Nahual.Promociones.Controllers.Usuario',
+Nahual.Promociones.Controllers.BaseController.extend('Nahual.Promociones.Controllers.Usuario',
 /* @Static */
 {
-	onDocument: true
 },
 /* @Prototype */
 {
  /**
- * When the page loads, gets all usuarios to be displayed.
+ * When the page loads, gets all promocions to be displayed.
  */
- "{window} load": function(){
-	if(!$("#usuario").length){
-	 $(document.body).append($('<div/>').attr('id','usuario'));
- 	}
+ init: function(){
+	this._super();
+
 	this.load();
  },
  load: function(){

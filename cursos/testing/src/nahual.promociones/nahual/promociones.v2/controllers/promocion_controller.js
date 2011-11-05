@@ -5,20 +5,18 @@
  * ["Nahual.Promociones.Controllers.Promocion.prototype.&#46;edit click" edit],
  * or ["Nahual.Promociones.Controllers.Promocion.prototype.&#46;destroy click" destroy] promocions.
  */
-$.Controller.extend('Nahual.Promociones.Controllers.Promocion',
+Nahual.Promociones.Controllers.BaseController.extend('Nahual.Promociones.Controllers.Promocion',
 /* @Static */
 {
-	onDocument: true
 },
 /* @Prototype */
 {
  /**
  * When the page loads, gets all promocions to be displayed.
  */
- "{window} load": function(){
-	if(!$("#promocion").length){
-	 $(document.body).append($('<div/>').attr('id','promocion'));
- 	}
+ init: function(){
+	this._super();
+
 	this.load();
  },
  load: function(){

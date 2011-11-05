@@ -19,6 +19,7 @@ steal.plugins('steal/build','steal/build/scripts','steal/build/styles',function(
 	new steal.File(inputDir + '/index.production.html').copyTo(outputDir + '/index.html');
 	new steal.File(inputDir + '/production.js').copyTo(outputDir + '/production.js').remove();
 	new steal.File(inputDir + '/production.css').copyTo(outputDir + '/production.css').remove();
+	new steal.File(inputDir + '/CHANGELOG.txt').copyTo(outputDir + '/CHANGELOG.txt');
 	
 	print('Copying steal.production.js from: ' + stealDir);
 	new steal.File(stealDir + '/steal.production.js').copyTo(outputDir + '/steal.production.js');
