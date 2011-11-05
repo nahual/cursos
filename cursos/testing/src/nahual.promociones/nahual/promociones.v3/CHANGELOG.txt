@@ -1,0 +1,19 @@
+Proyecto Nahual - Nahual Promociones
+
+Versión 3
+---------
+
+Funcionalidades incluidas:
+ - ABM de promociones incluyendo campos titulo, fecha inicio, fecha fin y desc.
+ - ABM de usuarios sin password
+ - Validaciones de campos en los ABM.
+ - DatePicker en los ABM donde resulte necesario
+ - Persistencia de las promociones usando localStorage (requiere Firefox 8+ o Google Chrome)
+ - Tabs para Promociones, Publicaciones y Usuarios
+Errores conocidos:
+ - Los links en la barra de navegación no poseen un destino
+ - El formato de la fecha entregada por los datePicker es EN-US
+ - El tab de Publicaciones apunta al ABM de Usuarios
+ 
+
+
