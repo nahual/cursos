@@ -1,4 +1,4 @@
-steal.plugins("jquery/controller","jquery/controller/subscribe","jquery/view/ejs","jquery/controller/view","jquery/model","jquery/dom/fixture","jquery/dom/form_params").css("promociones").resources().models("promocion").controllers("promocion").views("promocion/edit.ejs","promocion/init.ejs","promocion/list.ejs","promocion/show.ejs");
+steal.plugins("jquery/controller","jquery/controller/subscribe","jquery/view/ejs","jquery/controller/view","jquery/model","jquery/dom/fixture","jquery/dom/form_params").css("promociones").resources().models("promocion").controllers("base_controller","promocion").views("promocion/edit.ejs","promocion/init.ejs","promocion/list.ejs","promocion/show.ejs").then(function(){jQuery(document).ready(function(){Nahual.Promociones.Controllers.BaseController.basePathVersionPostfix=".v1";new Nahual.Promociones.Controllers.Promocion($("#promocion"))})});
 ;
 steal.end();
 steal.plugins("jquery/class","jquery/lang","jquery/event/destroyed").then(function(e){var u=function(a,b,c){var d,f=a.bind&&a.unbind?a:e(j(a)?[a]:a);if(b.indexOf(">")===0){b=b.substr(1);d=function(g){g.target===a&&c.apply(this,arguments)}}f.bind(b,d||c);return function(){f.unbind(b,d||c);a=b=c=d=null}},p=e.makeArray,v=e.isArray,j=e.isFunction,k=e.extend,q=e.String,w=function(a,b,c,d){e(a).delegate(b,c,d);return function(){e(a).undelegate(b,c,d);a=c=d=b=null}},r=function(a,b,c,d){return d?w(a,d,b,
@@ -285,12 +285,15 @@ fixture:"-restUpdate"})},destroy:function(a,b,c){$.ajax({url:"/promocions/"+a,ty
 type:"post",dataType:"json",success:b,error:c,data:a,fixture:function(){a.id=++Nahual.Promociones.Models.Promocion.lastId;Nahual.Promociones.Models.Promocion.promociones.push(new Nahual.Promociones.Models.Promocion(a));return[Nahual.Promociones.Models.Promocion.promociones,"success"]}})}},{titulo:"",descripcion:""});
 ;
 steal.end();
-$.Controller.extend("Nahual.Promociones.Controllers.Promocion",{onDocument:true},{"{window} load":function(){$("#promocion").length||$(document.body).append($("<div/>").attr("id","promocion"));this.load()},load:function(){Nahual.Promociones.Models.Promocion.findAll({},this.callback("list"))},list:function(a){$("#promocion").html(this.view("init",{promociones:a}))},"form submit":function(a,b){b.preventDefault();(b=a.closest(".promocion").model())?b.update(a.formParams()):(new Nahual.Promociones.Models.Promocion(a.formParams())).save()},
-".add click":function(){$("#promocion").html(this.view("edit"))},".edit click":function(a){a=a.closest(".promocion").model();$("#promocion").html(this.view("edit",a))},".cancel click":function(){this.load()},show:function(a){a.elements().html(this.view("show",a))},".delete click":function(a){confirm("\u00bfEst\u00e1 seguro que desea eliminar la promoci\u00f3n?")&&a.closest(".promocion").model().destroy()},"promocion.created subscribe":function(){this.load()},"promocion.updated subscribe":function(){this.load()},
-"promocion.destroyed subscribe":function(a,b){b.elements().remove()}});
+$.Controller.extend("Nahual.Promociones.Controllers.BaseController",{defaults:{startLoading:false},basePathVersionPostfix:""},{init:function(){},normalizeViewPath:function(a){var b=this.Class.fullName.replace(/\./g,"/");return"//"+jQuery.String.underscore(b.replace("/Controllers/"+this.Class.shortName,""))+Nahual.Promociones.Controllers.BaseController.basePathVersionPostfix+"/views/"+this.Class._shortName+"/"+a+jQuery.View.ext},view:function(a,b,d){a=this.normalizeViewPath(a);var c={};$.extend(c,
+b,{controller:this});return this._super(a,c,d)}});
 ;
 steal.end();
-$.View.preload('nahual_promociones_views_promocion_edit_ejs',jQuery.EJS(function(_CONTEXT,_VIEW) { try { with(_VIEW) { with (_CONTEXT) {var ___v1ew = [];___v1ew.push("<h2>Nueva Promoción</h2>\n");
+Nahual.Promociones.Controllers.BaseController.extend("Nahual.Promociones.Controllers.Promocion",{},{init:function(){this._super();this.load()},load:function(){Nahual.Promociones.Models.Promocion.findAll({},this.callback("list"))},list:function(a){$("#promocion").html(this.view("init",{promociones:a}))},"form submit":function(a,b){b.preventDefault();(b=a.closest(".promocion").model())?b.update(a.formParams()):(new Nahual.Promociones.Models.Promocion(a.formParams())).save()},".add click":function(){$("#promocion").html(this.view("edit"))},
+".edit click":function(a){a=a.closest(".promocion").model();$("#promocion").html(this.view("edit",a))},".cancel click":function(){this.load()},show:function(a){a.elements().html(this.view("show",a))},".delete click":function(a){confirm("\u00bfEst\u00e1 seguro que desea eliminar la promoci\u00f3n?")&&a.closest(".promocion").model().destroy()},"promocion.created subscribe":function(){this.load()},"promocion.updated subscribe":function(){this.load()},"promocion.destroyed subscribe":function(a,b){b.elements().remove()}});
+;
+steal.end();
+$.View.preload('nahual_promociones_v1_views_promocion_edit_ejs',jQuery.EJS(function(_CONTEXT,_VIEW) { try { with(_VIEW) { with (_CONTEXT) {var ___v1ew = [];___v1ew.push("<h2>Nueva Promoción</h2>\n");
 ___v1ew.push("<form ");___v1ew.push((jQuery.EJS.text( this)));___v1ew.push(">\n");
 ___v1ew.push("	"); for(var i = 0; i < Nahual.Promociones.Models.Promocion.editableAttributes.length; ++i){ 
 		var editableAttr = Nahual.Promociones.Models.Promocion.editableAttributes[i];
@@ -307,7 +310,7 @@ ___v1ew.push("	<input type=\"button\" class=\"cancel\" value=\"Cancelar\" />\n")
 ___v1ew.push("</form>\n");
 ; return ___v1ew.join('');}}}catch(e){e.lineNumber=null;throw e;} }));;
 steal.end();
-$.View.preload('nahual_promociones_views_promocion_init_ejs',jQuery.EJS(function(_CONTEXT,_VIEW) { try { with(_VIEW) { with (_CONTEXT) {var ___v1ew = [];___v1ew.push("<h2>Promociones</h2>\n");
+$.View.preload('nahual_promociones_v1_views_promocion_init_ejs',jQuery.EJS(function(_CONTEXT,_VIEW) { try { with(_VIEW) { with (_CONTEXT) {var ___v1ew = [];___v1ew.push("<h2>Promociones</h2>\n");
 ___v1ew.push("<a href='javascript://' class='add'>Agregar Nueva Promoción</a>\n");
 ___v1ew.push("<table class=\"list\" cellspacing='0px'>\n");
 ___v1ew.push("	<thead>\n");
@@ -321,19 +324,19 @@ ___v1ew.push("		<th>Options</th>\n");
 ___v1ew.push("	</tr>\n");
 ___v1ew.push("	</thead>\n");
 ___v1ew.push("	<tbody>\n");
-___v1ew.push("		");___v1ew.push((jQuery.EJS.text( $.View('//nahual/promociones/views/promocion/list',{promociones: promociones}))));___v1ew.push("\n");
+___v1ew.push("		");___v1ew.push((jQuery.EJS.text( controller.view('list',{promociones: promociones}))));___v1ew.push("\n");
 ___v1ew.push("	</tbody>\n");
 ___v1ew.push("</table>\n");
 ; return ___v1ew.join('');}}}catch(e){e.lineNumber=null;throw e;} }));;
 steal.end();
-$.View.preload('nahual_promociones_views_promocion_list_ejs',jQuery.EJS(function(_CONTEXT,_VIEW) { try { with(_VIEW) { with (_CONTEXT) {var ___v1ew = [];for(var i = 0; i < promociones.length ; i++){;___v1ew.push("\n");
+$.View.preload('nahual_promociones_v1_views_promocion_list_ejs',jQuery.EJS(function(_CONTEXT,_VIEW) { try { with(_VIEW) { with (_CONTEXT) {var ___v1ew = [];for(var i = 0; i < promociones.length ; i++){;___v1ew.push("\n");
 ___v1ew.push("	<tr ");___v1ew.push((jQuery.EJS.text( promociones[i])));___v1ew.push(">\n");
-___v1ew.push("		");___v1ew.push((jQuery.EJS.text( $.View('//nahual/promociones/views/promocion/show',promociones[i]))));___v1ew.push("\n");
+___v1ew.push("		");___v1ew.push((jQuery.EJS.text( controller.view('show',promociones[i]))));___v1ew.push("\n");
 ___v1ew.push("	</tr>\n");
 };___v1ew.push("\n");
 ; return ___v1ew.join('');}}}catch(e){e.lineNumber=null;throw e;} }));;
 steal.end();
-$.View.preload('nahual_promociones_views_promocion_show_ejs',jQuery.EJS(function(_CONTEXT,_VIEW) { try { with(_VIEW) { with (_CONTEXT) {var ___v1ew = []; for(var i = 0; i < Nahual.Promociones.Models.Promocion.editableAttributes.length; ++i){ 
+$.View.preload('nahual_promociones_v1_views_promocion_show_ejs',jQuery.EJS(function(_CONTEXT,_VIEW) { try { with(_VIEW) { with (_CONTEXT) {var ___v1ew = []; for(var i = 0; i < Nahual.Promociones.Models.Promocion.editableAttributes.length; ++i){ 
 	var editableAttr = Nahual.Promociones.Models.Promocion.editableAttributes[i];;
 ___v1ew.push("\n");
 ___v1ew.push("	<td class='");___v1ew.push((jQuery.EJS.text( editableAttr.Name)));___v1ew.push("'>\n");
