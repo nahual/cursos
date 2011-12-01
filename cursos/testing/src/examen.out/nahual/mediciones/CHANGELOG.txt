@@ -1,0 +1,12 @@
+Proyecto Nahual - Nahual Mediciones
+
+Versión 1
+---------
+
+Funcionalidades incluidas:
+ - ABM de mediciones
+ - Persistencia de las mediciones usando localStorage (requiere Firefox 8+ o Google Chrome)
+ - Campos tipo combo, numero, id readony, date
+
+
+

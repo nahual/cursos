@@ -1,0 +1,20 @@
+<h2>Mediciones</h2>
+<a href='javascript://' class='add'>Agregar Nueva Medición</a>
+<table class="list" cellspacing='0px'>
+	<thead>
+	<tr>
+		<% for(var i = 0; i < Nahual.Mediciones.Models.Medicion.editableAttributes.length; ++i){ 
+			var attr = Nahual.Mediciones.Models.Medicion.editableAttributes[i];
+			if (attr.ShowInList) {
+		%>
+				<th><%= attr.Description%> </th>	 
+		<%
+			}
+		}%>
+		<th>Options</th>
+	</tr>
+	</thead>
+	<tbody>
+		<%= controller.view('list',{mediciones: mediciones})%>
+	</tbody>
+</table>

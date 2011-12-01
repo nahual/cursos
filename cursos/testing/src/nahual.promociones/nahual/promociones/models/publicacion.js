@@ -1,4 +1,4 @@
-﻿/**
+/**
  * @tag models, home
  * Wraps backend usuario services.  Enables 
  * [Nahual.Promociones.Models.Publicacion.static.findAll retrieving],

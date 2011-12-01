@@ -1,0 +1,63 @@
+<h2><%= this.id ? "Editar" : "Nueva" %> Medición</h2>
+<form <%= this%> id="editForm">
+	<fieldset style=" margin-top:50px;margin-bottom:50px" >
+		<legend>Ingrese los datos de la medición</legend>
+		<p style="padding-left: 30px;">
+		<% for(var i = 0; i < Nahual.Mediciones.Models.Medicion.editableAttributes.length; ++i){ 
+			var editableAttr = Nahual.Mediciones.Models.Medicion.editableAttributes[i];
+			var entryClass = editableAttr.Required ? 'required' : '';
+			if (editableAttr.Type === 'number')
+				entryClass = entryClass + ' number';
+			var maxLength = editableAttr.MaxLength ? editableAttr.MaxLength.toString() : '';
+		%>
+			<div style="padding-top: 10px">
+				<div>
+					<div style="vertical-align:top;display:inline-block;width:120px" >
+						<label for="<%= editableAttr.Name %>" ><%= editableAttr.Description %></label>
+					</div>
+					<% if (editableAttr.Type == 'id') { %>
+						<span><%= this[editableAttr.Name] %></span>
+					<% } else if(editableAttr.Type == 'textarea') { %>
+						<textarea rows="4" cols="50" id="<%= editableAttr.Name %>" name="<%= editableAttr.Name %>"
+						class="<%= entryClass %>"
+						maxLength="<%= maxLength %>"
+						><%= this[editableAttr.Name] %></textarea>
+					<% } else if (editableAttr.Type == 'select') { %>
+						<select id="<%= editableAttr.Name %>" name="<%= editableAttr.Name %>"
+						class="<%= entryClass %>"
+						>
+						
+						<% 
+							var typeValues = editableAttr.TypeValues;
+							if (typeof(typeValues) == 'function')
+								typeValues = typeValues();
+							for(var ii = 0; ii < typeValues.length; ++ii){
+						%>
+							<option value="<%= typeValues[ii]%>"
+								<% if (this[editableAttr.Name] == typeValues[ii]) { %>
+									selected="selected"
+								<% } %>
+							>
+								<%= typeValues[ii]%>
+							</option>
+						<% } %>
+						</select>
+					<% } else { %>
+						<input type="text" id="<%= editableAttr.Name %>" name="<%= editableAttr.Name %>"
+						class="<%= entryClass %>"
+						maxLength="<%= maxLength %>"
+						value="<%= this[editableAttr.Name] %>" />
+					<% } %>
+					<% if (editableAttr.Required) { %>
+						*
+					<% } %>
+				</div>
+			</div>
+		<%}%>
+		</p>
+		<p style="padding-left: 100px;">
+			<input type='submit' class="save" value='Grabar'/>
+			<input type="button" class="cancel" value="Cancelar" />
+		</p>
+	</fieldset>
+</form>

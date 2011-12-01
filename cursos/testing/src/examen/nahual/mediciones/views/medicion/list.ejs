@@ -1,0 +1,5 @@
+<%for(var i = 0; i < mediciones.length ; i++){%>
+	<tr <%= mediciones[i]%>>
+		<%= controller.view('show',mediciones[i])%>
+	</tr>
+<%}%>
