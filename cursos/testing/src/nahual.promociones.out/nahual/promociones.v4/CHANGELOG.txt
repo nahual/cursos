@@ -16,3 +16,4 @@ Errores conocidos:
  - El borrado de publicaciones que fueron relacionadas desde una promoción deja a la última en estado inconsistente.
  - Cuando las validaciones quedan fallando en segundo plano, al cambiar de Tab, no se pueden ejecutar otras acciones en el nuevo Tab elegido.
 
+
