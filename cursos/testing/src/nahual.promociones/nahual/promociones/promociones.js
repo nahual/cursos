@@ -19,7 +19,7 @@ steal.plugins(
 
 	.models('promocion', 'publicacion', 'usuario')		// loads files in models folder 
 
-	.controllers('base_controller', 'promocion', 'publicacion', 'usuario')	// loads files in controllers folder
+	.controllers('base_controller', 'promocion', 'publicacion', 'usuario', 'login')	// loads files in controllers folder
 
 	.views(
 		'promocion/edit.ejs',
@@ -33,7 +33,8 @@ steal.plugins(
 		'usuario/edit.ejs',
 		'usuario/init.ejs',
 		'usuario/list.ejs',
-		'usuario/show.ejs'
+		'usuario/show.ejs',
+		'login/init.ejs'
 	)
 	.then(function () {
 		$(document).ready(function () {
@@ -42,6 +43,7 @@ steal.plugins(
 			new Nahual.Promociones.Controllers.Promocion($('#promocion'));
 			new Nahual.Promociones.Controllers.Publicacion($('#publicacion'));
 			new Nahual.Promociones.Controllers.Usuario($('#usuario'));
+			new Nahual.Promociones.Controllers.Login($('#login'));
 		});
 	}
 	);						// adds views to be added to build
