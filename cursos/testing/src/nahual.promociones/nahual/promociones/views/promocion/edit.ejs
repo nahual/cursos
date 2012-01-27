@@ -38,8 +38,10 @@
 							</option>
 						<% } %>
 						</select>
-					<% } else { %>
-						<input type="text" id="<%= editableAttr.Name %>" name="<%= editableAttr.Name %>"
+					<% } else {
+						var inputType = editableAttr.Type == 'password'?'password':'text';
+					%>
+						<input type="<%= inputType %>" id="<%= editableAttr.Name %>" name="<%= editableAttr.Name %>"
 						class="<%= entryClass %>"
 						maxLength="<%= maxLength %>"
 						value="<%= this[editableAttr.Name] %>" />

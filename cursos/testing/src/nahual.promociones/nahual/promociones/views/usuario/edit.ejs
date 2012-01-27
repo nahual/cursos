@@ -18,8 +18,30 @@
 						class="<%= entryClass %>"
 						maxLength="<%= maxLength %>"
 						><%= this[editableAttr.Name] %></textarea>
-					<% } else { %>
-						<input type="text" id="<%= editableAttr.Name %>" name="<%= editableAttr.Name %>"
+					<% } else if (editableAttr.Type == 'select') { %>
+						<select id="<%= editableAttr.Name %>" name="<%= editableAttr.Name %>"
+						class="<%= entryClass %>"
+						>
+						
+						<% 
+							var typeValues = editableAttr.TypeValues;
+							if (typeof(typeValues) == 'function')
+								typeValues = typeValues();
+							for(var ii = 0; ii < typeValues.length; ++ii){
+						%>
+							<option value="<%= typeValues[ii]%>"
+								<% if (this[editableAttr.Name] == typeValues[ii]) { %>
+									selected="selected"
+								<% } %>
+							>
+								<%= typeValues[ii]%>
+							</option>
+						<% } %>
+						</select>
+					<% } else {
+						var inputType = editableAttr.Type == 'password'?'password':'text';
+					%>
+						<input type="<%= inputType %>" id="<%= editableAttr.Name %>" name="<%= editableAttr.Name %>"
 						class="<%= entryClass %>"
 						maxLength="<%= maxLength %>"
 						value="<%= this[editableAttr.Name] %>" />

@@ -31,6 +31,8 @@ $.Model.extend('Nahual.Promociones.Models.Usuario',
 		{
 			Name: 'password',
 			Description: 'Password',
+			Type: 'password',
+			Required: true,
 			MaxLength: 16
 		}
 	],
