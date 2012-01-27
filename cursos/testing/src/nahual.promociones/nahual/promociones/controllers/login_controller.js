@@ -41,13 +41,13 @@ Nahual.Promociones.Controllers.BaseController.extend('Nahual.Promociones.Control
 },
 validate_user: function(login){
 	var users = $.nahual.data.usuarios.getAll();
-	for(var i = 0; i < users.length; ++i){
-		if (users[i].cuenta = login.cuenta && users[i].password == login.password)
-			return true;
-	}
-	if (login.cuenta == 'admin' && login.password == 'admin'){
+	if (users.length == 0 && login.cuenta == 'admin' && login.password == 'admin'){
 		return true;
 	} else {
+		for(var i = 0; i < users.length; ++i){
+			if (users[i].cuenta = login.cuenta && users[i].password == login.password)
+				return true;
+		}
 		return false;
 	}
 }

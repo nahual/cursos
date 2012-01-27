@@ -1,18 +1,19 @@
 Proyecto Nahual - Nahual Promociones
 
-Versión 4
+Versión 5
 ---------
 
 Funcionalidades incluidas:
  - ABM de promociones incluyendo vinculación con publicaciones.
  - ABM de publicaciones incluyendo combos.
- - ABM de usuarios sin password
+ - ABM de usuarios con password
  - Validaciones de campos en los ABM.
  - DatePicker en los ABM donde resulte necesario
  - Persistencia de las promociones usando localStorage (requiere Firefox 8+ o Google Chrome)
  - Tabs para Promociones, Publicaciones y Usuarios
-Errores conocidos:
- - El formato de la fecha entregada por los datePicker es EN-US
- - El borrado de publicaciones que fueron relacionadas desde una promoción deja a la última en estado inconsistente.
- - Cuando las validaciones quedan fallando en segundo plano, al cambiar de Tab, no se pueden ejecutar otras acciones en el nuevo Tab elegido.
+ - Login. Usuario por defecto: admin. Pass: admin. 
+VER Errores conocidos:
+VER - El formato de la fecha entregada por los datePicker es EN-US
+VER - El borrado de publicaciones que fueron relacionadas desde una promoción deja a la última en estado inconsistente.
+VER - Cuando las validaciones quedan fallando en segundo plano, al cambiar de Tab, no se pueden ejecutar otras acciones en el nuevo Tab elegido.
 
