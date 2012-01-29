@@ -37,10 +37,7 @@ Nahual.Promociones.Controllers.BaseController.extend('Nahual.Promociones.Control
 'form submit': function( el, ev ){
 	ev.preventDefault();
 	var usuario = el.closest('.usuario').model();
-	if (usuario)
-		usuario.update(el.formParams());
-	else
-		new Nahual.Promociones.Models.Usuario(el.formParams()).save();
+	this.submit(el, usuario);
 },
  /**
  * Creates and places the edit interface.
@@ -62,7 +59,7 @@ Nahual.Promociones.Controllers.BaseController.extend('Nahual.Promociones.Control
  * @param {jQuery} el The usuario's cancel link element.
  */
 '.cancel click': function( el ){
-	this.load();
+	this.cancel();
 },
  /**
  * Shows a usuario's information.
@@ -70,10 +67,30 @@ Nahual.Promociones.Controllers.BaseController.extend('Nahual.Promociones.Control
 show: function( usuario ){
 	usuario.elements().html(this.view('show',usuario));
 },
+/**
+ * Submits a publicacion's element.
+ */
+submit: function( el, usuario ){
+	this._super(el, usuario);
+	
+	
+	if (usuario)
+		usuario.update(el.formParams());
+	else
+		new Nahual.Promociones.Models.Usuario(el.formParams()).save();
+},
+ /**
+ * Cancel the edition of a publicacion's element.
+ */
+cancel: function( ){
+	this._super();
+	this.load();
+},
  /**
  * Allow editing a usuario's element.
  */
 edit: function( usuario ){
+	this._super(usuario);
 	$('#usuario').html(this.view('edit', usuario));
 	$('#editForm').validate();
 },

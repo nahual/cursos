@@ -17,6 +17,15 @@ $.Controller.extend('Nahual.Promociones.Controllers.BaseController',
  */
  init: function(){
  },
+ edit: function( entity ){
+	this.inEditMode = true;
+ },
+ submit: function( el, entity ){
+	this.inEditMode = false;
+ },
+ cancel: function( ){
+	this.inEditMode = false;
+ },
  normalizeViewPath: function( view ){
 	var slashes = this.Class.fullName.replace(/\./g, "/");
 	var basePath = jQuery.String.underscore(slashes.replace("/Controllers/" + this.Class.shortName, ""));
