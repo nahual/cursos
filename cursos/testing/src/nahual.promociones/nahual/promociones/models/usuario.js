@@ -18,6 +18,13 @@ $.Model.extend('Nahual.Promociones.Models.Usuario',
 			MaxLength: 50
 		},
 		{
+			Name: 'password',
+			Description: 'Password',
+			Type: 'password',
+			Required: true,
+			MaxLength: 16
+		},
+		{
 			Name: 'nombre',
 			Description: 'Nombre',
 			ShowInList: true,
@@ -29,11 +36,12 @@ $.Model.extend('Nahual.Promociones.Models.Usuario',
 			ShowInList: true
 		},
 		{
-			Name: 'password',
-			Description: 'Password',
-			Type: 'password',
+			Name: 'rol',
+			Description: 'Rol',
+			ShowInList: true,
 			Required: true,
-			MaxLength: 16
+			Type: 'select',
+			TypeValues: ['Usuario', 'Admin']
 		}
 	],
 	lastId: 0,
