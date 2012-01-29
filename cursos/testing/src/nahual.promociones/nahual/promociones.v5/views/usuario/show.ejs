@@ -1,0 +1,14 @@
+<% for(var i = 0; i < Nahual.Promociones.Models.Usuario.editableAttributes.length; ++i){ 
+	var editableAttr = Nahual.Promociones.Models.Usuario.editableAttributes[i];
+	if (editableAttr.ShowInList) {
+%>
+		<td class='<%= editableAttr.Name%>'>
+			<%=this[editableAttr.Name]%>
+		</td>
+<%
+	}
+}%>
+<td>
+	<a href='javascript://' class='edit'>Editar</a>
+	<a href='javascript://' class='delete'>Eliminar</a>
+</td>

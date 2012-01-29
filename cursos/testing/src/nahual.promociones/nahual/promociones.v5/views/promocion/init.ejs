@@ -1,0 +1,19 @@
+<a href='javascript://' class='add'>Agregar</a>
+<table class="list" cellspacing='0px'>
+	<thead>
+	<tr>
+		<% for(var i = 0; i < Nahual.Promociones.Models.Promocion.editableAttributes.length; ++i){ 
+			var attr = Nahual.Promociones.Models.Promocion.editableAttributes[i];
+			if (attr.ShowInList) {
+		%>
+				<th><%= attr.Description%> </th>	 
+		<%
+			}
+		}%>
+		<th></th>
+	</tr>
+	</thead>
+	<tbody>
+		<%= controller.view('list',{promociones: promociones})%>
+	</tbody>
+</table>
