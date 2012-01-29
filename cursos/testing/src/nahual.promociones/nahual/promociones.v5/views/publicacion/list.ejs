@@ -1,0 +1,5 @@
+<%for(var i = 0; i < publicaciones.length ; i++){%>
+	<tr <%= publicaciones[i]%>>
+		<%= controller.view('show',publicaciones[i])%>
+	</tr>
+<%}%>
