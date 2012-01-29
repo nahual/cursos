@@ -144,6 +144,15 @@ $.Model.extend('Nahual.Promociones.Models.Publicacion',
 			error: error,
 			data: attrs,
 			fixture: function( settings, callbackType ) {
+				var publicaciones = $.nahual.data.publicaciones.getAll();
+				for(var i = 0; i < publicaciones.length; ++i) {
+					if (publicaciones[i].nombre == attrs.nombre) {
+						var msg = 'La publicación ya existe';
+						alert(msg);
+						return [500, msg];
+					}
+				}
+				
 				var id = $.nahual.data.publicaciones.getLatestId() + 1;
 				$.nahual.data.publicaciones.set(id, attrs);
 				var publicaciones = $.nahual.data.publicaciones.getAll();

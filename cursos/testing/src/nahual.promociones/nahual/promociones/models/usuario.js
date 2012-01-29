@@ -126,6 +126,15 @@ $.Model.extend('Nahual.Promociones.Models.Usuario',
 			error: error,
 			data: attrs,
 			fixture: function( settings, callbackType ) {
+				var usuarios = $.nahual.data.usuarios.getAll();
+				for(var i = 0; i < usuarios.length; ++i) {
+					if (usuarios[i].cuenta == attrs.cuenta) {
+						var msg = 'El usuario ya existe';
+						alert(msg);
+						return [500, msg];
+					}
+				}
+				
 				var id = $.nahual.data.usuarios.getLatestId() + 1;
 				$.nahual.data.usuarios.set(id, attrs);
 				var usuarios = $.nahual.data.usuarios.getAll();

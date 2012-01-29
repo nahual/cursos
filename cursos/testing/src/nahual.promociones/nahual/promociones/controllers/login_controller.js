@@ -18,6 +18,7 @@ Nahual.Promociones.Controllers.BaseController.extend('Nahual.Promociones.Control
 	this.load();
  },
  load: function(){
+	$('#menu').hide();
 	$('#tabs').hide();
 	$('#login').html(this.view('init')).find('#cuenta').focus();
  },
@@ -31,6 +32,13 @@ Nahual.Promociones.Controllers.BaseController.extend('Nahual.Promociones.Control
 	var login = el.formParams();
 	if (this.validate_user(login)){
 		$('#login').empty();
+		$('#username').text(login.cuenta);
+		var loginController = this;
+		var logout = function (){
+			loginController.init();
+		}
+		$('#logout').click(logout);
+		$('#menu').show();
 		$('#tabs').show();
 	} else {
 		alert('Usuario y/o contraseña no son correctos');

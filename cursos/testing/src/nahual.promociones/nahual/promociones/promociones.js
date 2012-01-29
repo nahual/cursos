@@ -38,7 +38,7 @@ steal.plugins(
 	)
 	.then(function () {
 		$(document).ready(function () {
-			Nahual.Promociones.Controllers.BaseController.basePathVersionPostfix = '';
+			Nahual.Promociones.Controllers.BaseController.basePathVersionPostfix = '';			
 			var promo = new Nahual.Promociones.Controllers.Promocion($('#promocion'));
 			var publicacion = new Nahual.Promociones.Controllers.Publicacion($('#publicacion'));
 			var usuario = new Nahual.Promociones.Controllers.Usuario($('#usuario'));

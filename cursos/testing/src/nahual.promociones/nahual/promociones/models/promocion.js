@@ -135,6 +135,16 @@ $.Model.extend('Nahual.Promociones.Models.Promocion',
 			error: error,
 			data: attrs,
 			fixture: function( settings, callbackType ) {
+				var promociones = $.nahual.data.promociones.getAll();
+				for(var i = 0; i < promociones.length; ++i) {
+					if (promociones[i].titulo == attrs.titulo) {
+						var msg = 'La promoción ya existe';
+						alert(msg);
+						return [500, msg];
+					}
+				}
+				
+			
 				var id = $.nahual.data.promociones.getLatestId() + 1;
 				$.nahual.data.promociones.set(id, attrs);
 				var promociones = $.nahual.data.promociones.getAll();

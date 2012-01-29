@@ -11,24 +11,29 @@ h1
 	padding: 10px 5px 10px 5px;
 	border-radius: 7px;
 }
-.menu 
+#menu 
 {
 	padding:5px;
 	margin:1px;
 	background-color:#007fff;
 	border-radius: 7px;
 }
-.menu>li
+#menu>li
 {
 	padding: 0 25px 0 0;
 	display:inline-block;
 	color: #ffffff;
 }
-.menu>li>a
+#menu>li>a
 {
 	padding: 0 25px 0 0;
 	display:inline-block;
 	color: #ffffff;
+}
+
+#menu>li#logout
+{
+	float:right
 }
 .footer
 {
