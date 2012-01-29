@@ -38,12 +38,20 @@ steal.plugins(
 	)
 	.then(function () {
 		$(document).ready(function () {
-			$('#tabs').tabs();
 			Nahual.Promociones.Controllers.BaseController.basePathVersionPostfix = '';
-			new Nahual.Promociones.Controllers.Promocion($('#promocion'));
-			new Nahual.Promociones.Controllers.Publicacion($('#publicacion'));
-			new Nahual.Promociones.Controllers.Usuario($('#usuario'));
+			var promo = new Nahual.Promociones.Controllers.Promocion($('#promocion'));
+			var publicacion = new Nahual.Promociones.Controllers.Publicacion($('#publicacion'));
+			var usuario = new Nahual.Promociones.Controllers.Usuario($('#usuario'));
 			new Nahual.Promociones.Controllers.Login($('#login'));
+			$('#tabs').tabs({
+				select: function (event, ui) {
+					var allowSelect = !(promo.inEditMode || usuario.inEditMode || publicacion.inEditMode);
+					if (!allowSelect){
+						alert("Debe finalizar la edición antes de cambiar de sección");
+					}
+					return allowSelect;
+				}
+			});
 		});
 	}
 	);						// adds views to be added to build
