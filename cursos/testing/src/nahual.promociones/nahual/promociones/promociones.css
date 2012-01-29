@@ -47,6 +47,11 @@ h1
 }
 .add {
 	margin: 20px;
+	border-radius:5px;
+	color:#ffffff !important;
+	background-color:#007fff;
+	padding:6px 20px 6px 20px;
+	margin: 30px 20px 30px 20px;
 }
 
 .list {

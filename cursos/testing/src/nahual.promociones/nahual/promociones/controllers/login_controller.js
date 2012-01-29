@@ -19,7 +19,7 @@ Nahual.Promociones.Controllers.BaseController.extend('Nahual.Promociones.Control
  },
  load: function(){
 	$('#tabs').hide();
-	$('#login').html(this.view('init'));
+	$('#login').html(this.view('init')).find('#cuenta').focus();
  },
  /**
  * Responds to the create form being submitted by creating a new Nahual.Promociones.Models.Usuario.
