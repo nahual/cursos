@@ -1,7 +1,7 @@
 //steal/js nahual/promociones/scripts/compress.js
 
-var inputDir = 'nahual/promociones';
-var outputDir = 'nahual/out/promociones';
+var inputDir = 'nahual/promociones.v5';
+var outputDir = 'nahual/out/promociones.v5';
 var resourcesToCopy = ['resources', 'resources/external'];
 
 var stealDir = './steal';
